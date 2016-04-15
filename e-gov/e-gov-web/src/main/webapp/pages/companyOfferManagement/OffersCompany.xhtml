@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head></h:head>
+<body>
+	<h1>list of all offers</h1>
+	<h:form>
+		<h:dataTable border="2" value="#{companyOfferBean.companyOffers}"
+			var="o">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="description" />
+				</f:facet>
+				<h:outputText value="#{o.description}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="#" />
+				</f:facet>
+				<h:commandButton action="#{companyOfferBean.select(o)}"
+					value="select" />
+			</h:column>
+		</h:dataTable>
+		<h:outputText value="description" />
+		<h:inputText value="#{companyOfferBean.companyOffer.description}" />
+		<h:outputText value="company ID" />
+		<h:inputText value="#{companyOfferBean.companyId}" />
+		<h:commandButton action="#{companyOfferBean.doCreateCompanyOffer()}"
+			value="create" />
+
+		<h:panelGrid columns="2" rendered="#{companyOfferBean.visible}">
+			<h:outputText value="description" />
+			<h:inputText
+				value="#{companyOfferBean.companyOfferSelected.description}" />
+			<h:panelGrid columns="3">
+				<h:commandButton action="#{companyOfferBean.doDelete()}"
+					value="delete" />
+				<h:commandButton action="#{companyOfferBean.doSaveOrUpdate()}"
+					value="save or update" />
+
+			</h:panelGrid>
+		</h:panelGrid>
+	</h:form>
+
+</body>
+</html>

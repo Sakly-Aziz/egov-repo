@@ -15,6 +15,13 @@
 			</f:facet>
 			<h:outputText value="#{o.description}" />
 		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="#" />
+			</f:facet>
+			<h:commandButton action="#{companyOfferBean.select(u)}"
+				value="select" />
+		</h:column>
 	</h:dataTable>
 </body>
 </html>

@@ -72,4 +72,53 @@ public class CompanyOfferManagement implements CompanyOfferManagementRemote, Com
 		return b;
 	}
 
+	@Override
+	public Boolean removeCompanyOfferById(Integer offerId) {
+		CompanyOffer companyOffer = new CompanyOffer();
+		try {
+			companyOffer = entityManager.find(CompanyOffer.class, offerId);
+
+			entityManager.remove(entityManager.merge(companyOffer));
+			return true;
+
+		} catch (Exception e) {
+			return false;
+		}
+
+	}
+
+	public Boolean remove(CompanyOffer u) {
+		try {
+			entityManager.remove(entityManager.merge(u));
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+
+	}
+
+	@Override
+	public CompanyOffer findCompanyOfferById(Integer offerId) {
+		CompanyOffer companyOffer = null;
+		try {
+
+			companyOffer = entityManager.find(CompanyOffer.class, offerId);
+		} catch (Exception e) {
+
+		}
+
+		return companyOffer;
+	}
+
+	@Override
+	public Boolean update(CompanyOffer u) {
+		try {
+			entityManager.merge(u);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+
+	}
+
 }
