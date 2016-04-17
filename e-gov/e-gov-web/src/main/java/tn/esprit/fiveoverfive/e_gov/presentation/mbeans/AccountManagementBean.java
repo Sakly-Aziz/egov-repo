@@ -73,10 +73,20 @@ public class AccountManagementBean {
 		return "/pages/acountManagement/listAccounts?faces-redirect=true";
 	}
 
-	public String doSendMoney(Account accountSelected , Account account) {
-		iAccountMangementLocal.SendMoney(accountSelected.getNum(),account.getNum(), accountSelected.getAmmount());
+	public String doSendMoney(Account account1 , Account account2 ,float ammount ) {
+		iAccountMangementLocal.SendMoney(account1.getNum(),account2.getNum(), ammount);
 		return "/pages/acountManagement/listAccounts?faces-redirect=true";
 	}
+	
+	public List<Account> doFindAccountByUser(User u){
+		accounts=iAccountMangementLocal.findAllCarByIdUser(u);
+		return accounts;
+	}
+	public Account doFindAccountByNum(int num){
+		account=iAccountMangementLocal.findAccountByNum(num);
+		return account;
+	}
+	/*
 	
 	public void doPdf(Account account){
 		
@@ -125,5 +135,6 @@ public class AccountManagementBean {
 	
 
 }
+	*/
 	
 }

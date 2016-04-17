@@ -8,16 +8,16 @@
 <body>
 	<h:form>
 	<h:panelGrid columns="2">
-		<h:outputText value="account 1" />
-			<h:inputText value="#{accountManagementBean.account.num}" />
+		<h:outputText value="num account1" />
+			<h:inputText value="#{accountManagementBean.doFindAccountByNum(accountManagementBean.account.num)) }" var="account1" />
 			<h:outputText value="ammount to send " />
-			<h:inputText value="#{accountManagementBean.account.ammount}" />
+			<h:inputText value="#{accountManagementBean.account.ammount}" var="ammount" />
 		<h:panelGrid columns="2"> 
 		</h:panelGrid>
-		<h:outputText value="account 2" />
-			<h:inputText value="#{accountManagementBean.account.num}" />
+	<h:outputText value="num account2" />
+			<h:inputText value="#{accountManagementBean.doFindAccountByNum(accountManagementBean.account.num))}" var="account2" />
 	
-			<h:commandButton action="#{accountManagementBean.doSendMoney()}" value="zid" />
+			<h:commandButton action="#{accountManagementBean.doSendMoney(account1,account2,ammount)}" value="zid" />
 		</h:panelGrid>
 	</h:form>
 </body>

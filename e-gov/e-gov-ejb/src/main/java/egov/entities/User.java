@@ -27,7 +27,7 @@ import javax.persistence.OneToMany;
 public class User implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idUser;
 	private String firstName;
 	private String lastName;

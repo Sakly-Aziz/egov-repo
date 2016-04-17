@@ -7,8 +7,11 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import egov.entities.Account;
+import egov.entities.Car;
+import egov.entities.User;
 import egov.services.interfaces.IAccountManagementLocal;
 import egov.services.interfaces.IAccountManagementRemote;
 
@@ -86,6 +89,19 @@ public class AccountManagement implements IAccountManagementRemote, IAccountMana
 		}
 		return x;
 
+	}
+	
+
+	public List<Account> findAllCarByIdUser( User u)
+	{
+		
+		TypedQuery<Account> query =  em.createNamedQuery("findAccountByUser", Account.class);
+		query.setParameter("var", u.getIdUser());
+		List<Account> accounts= query.getResultList();
+		return accounts;
+		
+		
+		
 	}
 
 }
