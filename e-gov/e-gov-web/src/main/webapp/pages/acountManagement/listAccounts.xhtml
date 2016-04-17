@@ -22,6 +22,12 @@
 				</f:facet>
 				<h:outputText value="#{c.ammount}" />
 			</h:column>
+				<h:column id="c2555555555">
+				<f:facet name="header">
+					<h:outputText value="Bank Name "></h:outputText>
+				</f:facet>
+				<h:outputText value="#{c.name}" />
+			</h:column>
 			<h:column id="c3">
 				<f:facet name="header">
 					<h:outputText value="#"></h:outputText>
@@ -46,7 +52,8 @@
 			<h:inputText value="#{accountManagementBean.accountSelected.num}" />
 			<h:outputText value="ammount" />
 			<h:inputText value="#{accountManagementBean.accountSelected.ammount}" />
-	
+		<h:outputText value="Name of Bank" />
+			<h:inputText value="#{accountManagementBean.account.name}" />
 			<h:commandButton action="#{accountManagementBean.doUpdateAccount()}"
 				value="update" />
 		</h:panelGrid>

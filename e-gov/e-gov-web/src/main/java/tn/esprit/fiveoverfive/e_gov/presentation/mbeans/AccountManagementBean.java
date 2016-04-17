@@ -26,7 +26,9 @@ public class AccountManagementBean {
 	private IAccountManagementLocal iAccountMangementLocal;
 
 	private List<Account> accounts = new ArrayList<>();
+	private float money;
 	private Account account = new Account();
+	private Account account2 = new Account();
 	private Account accountSelected = new Account();
 
 	public List<Account> getAccounts() {
@@ -73,8 +75,8 @@ public class AccountManagementBean {
 		return "/pages/acountManagement/listAccounts?faces-redirect=true";
 	}
 
-	public String doSendMoney(Account account1 , Account account2 ,float ammount ) {
-		iAccountMangementLocal.SendMoney(account1.getNum(),account2.getNum(), ammount);
+	public String doSendMoney() {
+		iAccountMangementLocal.SendMoney(account.getNum(),account2.getNum(), money);
 		return "/pages/acountManagement/listAccounts?faces-redirect=true";
 	}
 	
@@ -86,6 +88,25 @@ public class AccountManagementBean {
 		account=iAccountMangementLocal.findAccountByNum(num);
 		return account;
 	}
+
+	public Account getAccount2() {
+		return account2;
+	}
+
+	public void setAccount2(Account account2) {
+		this.account2 = account2;
+	}
+
+	public float getMoney() {
+		return money;
+	}
+
+	public void setMoney(float money) {
+		this.money = money;
+	}
+	
+		
+	
 	/*
 	
 	public void doPdf(Account account){

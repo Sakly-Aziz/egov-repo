@@ -80,13 +80,12 @@ public class AccountManagement implements IAccountManagementRemote, IAccountMana
 		Account account1 = em.find(Account.class, num1);
 		Account account2 = em.find(Account.class, num2);
 
-		if (ammount > account1.getAmmount()) {
-			x = false;
+	
 
-		} else {
+		
 			account1.setAmmount(account1.getAmmount() - ammount);
 			account2.setAmmount(account2.getAmmount() + ammount);
-		}
+		
 		return x;
 
 	}
