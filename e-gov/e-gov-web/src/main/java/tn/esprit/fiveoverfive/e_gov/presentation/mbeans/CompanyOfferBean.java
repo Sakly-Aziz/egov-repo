@@ -18,6 +18,8 @@ public class CompanyOfferBean {
 	private CompanyOffer companyOfferSelected = new CompanyOffer();
 	private Boolean visible = false;
 	private Integer companyId;
+	private Integer userId;
+	private Integer offerId;
 
 	@EJB
 	private CompanyOfferManagementLocal companyOfferManagementLocal;
@@ -45,6 +47,28 @@ public class CompanyOfferBean {
 
 	public String doCreateCompanyOffer() {
 		companyOfferManagementLocal.createCompanyOffer(companyId, companyOffer);
+		return "";
+	}
+
+	public Integer getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+
+	public Integer getOfferId() {
+		return offerId;
+	}
+
+	public void setOfferId(Integer offerId) {
+		this.offerId = offerId;
+	}
+
+	public String doCreateJobRequest() {
+
+		companyOfferManagementLocal.createJobRequest(userId, offerId);
 		return "";
 	}
 
