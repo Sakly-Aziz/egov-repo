@@ -7,7 +7,9 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import egov.entities.Account;
 import egov.entities.User;
+import egov.services.interfaces.IAccountManagementLocal;
 import egov.services.interfaces.IUserMangementLocal;
 
 @ManagedBean
@@ -15,6 +17,9 @@ import egov.services.interfaces.IUserMangementLocal;
 public class UserManagementBean {
 	@EJB
 	private IUserMangementLocal iUserMangementLocal;
+	private IAccountManagementLocal iAccountMangementLocal;
+	private Account a = new Account();
+	private User u=new User();
 
 	private List<User> users = new ArrayList<>();
 	private User user = new User();
@@ -66,6 +71,11 @@ public class UserManagementBean {
 
 	public void setCars(List<User> users) {
 		this.users = users;
+	}
+	public String doAffecterAcountToUser(){
+		iAccountMangementLocal.affecterAccountUser(a, u);
+		return "/pages/acountManagement/listAccounts?faces-redirect=true";
+		
 	}
 
 }

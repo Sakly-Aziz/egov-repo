@@ -31,8 +31,7 @@ public class AccountManagementBean {
 	private float money;
 	private Account account = new Account();
 	private Account account2 = new Account();
-	private Account a = new Account();
-	private User u=new User();
+	
 	private User user=new User();
 	private Account accountSelected = new Account();
 
@@ -110,11 +109,7 @@ public class AccountManagementBean {
 		this.money = money;
 	}
 	
-	public String doAffecterAcountToUser(){
-		iAccountMangementLocal.affecterAccountUser(a, u);
-		return "/pages/acountManagement/listAccounts?faces-redirect=true";
-		
-	}
+
 public User dofindUserById (int id){
 	user=iUserMangementLocal.findUserById(id);
 	return user;
@@ -128,6 +123,7 @@ public IUserMangementLocal getiUserMangementLocal() {
 public void setiUserMangementLocal(IUserMangementLocal iUserMangementLocal) {
 	this.iUserMangementLocal = iUserMangementLocal;
 }
+
 	
 	/*
 	
