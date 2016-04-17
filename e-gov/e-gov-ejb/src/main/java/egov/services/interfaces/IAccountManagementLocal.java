@@ -22,5 +22,6 @@ public interface IAccountManagementLocal {
 
 	Boolean SendMoney(int num1, int num2, float ammount);
 	 List<Account> findAllCarByIdUser( User u);
+		void affecterAccountUser(Account a , User u);
 
 }

@@ -18,17 +18,22 @@ import com.itextpdf.text.pdf.PdfWriter;
 import egov.entities.Account;
 import egov.entities.User;
 import egov.services.interfaces.IAccountManagementLocal;
+import egov.services.interfaces.IUserMangementLocal;
 
 @ManagedBean
 @SessionScoped
 public class AccountManagementBean {
 	@EJB
 	private IAccountManagementLocal iAccountMangementLocal;
+	private IUserMangementLocal iUserMangementLocal;
 
 	private List<Account> accounts = new ArrayList<>();
 	private float money;
 	private Account account = new Account();
 	private Account account2 = new Account();
+	private Account a = new Account();
+	private User u=new User();
+	private User user=new User();
 	private Account accountSelected = new Account();
 
 	public List<Account> getAccounts() {
@@ -105,7 +110,24 @@ public class AccountManagementBean {
 		this.money = money;
 	}
 	
+	public String doAffecterAcountToUser(){
+		iAccountMangementLocal.affecterAccountUser(a, u);
+		return "/pages/acountManagement/listAccounts?faces-redirect=true";
 		
+	}
+public User dofindUserById (int id){
+	user=iUserMangementLocal.findUserById(id);
+	return user;
+	
+}
+
+public IUserMangementLocal getiUserMangementLocal() {
+	return iUserMangementLocal;
+}
+
+public void setiUserMangementLocal(IUserMangementLocal iUserMangementLocal) {
+	this.iUserMangementLocal = iUserMangementLocal;
+}
 	
 	/*
 	
