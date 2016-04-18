@@ -201,33 +201,13 @@ public void setU(User u) {
 
 }
 	
-	public void box (){
+	
+
 		
 
 	
+		
 			
-		    BoxAPIConnection api = new BoxAPIConnection("rNaWj8PW32umeWpK4n48BgizZwRaolWD");
-			BoxFolder rootFolder = BoxFolder.getRootFolder(api);
-			for (com.box.sdk.BoxItem.Info itemInfo : rootFolder) {
-			    System.out.format("[%s] %s\n", itemInfo.getID(), itemInfo.getName());
-			}
-
-			FileInputStream stream = null;
-			try {
-				stream = new FileInputStream("D:/lol.pdf");
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			rootFolder.uploadFile(stream,"lol.pdf");
-			try {
-				stream.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-			}
 	@PostConstruct
 	public void init() {
 		accounts = iAccountMangementLocal.findAll();
@@ -241,6 +221,79 @@ public void setU(User u) {
 		return "/pages/acountManagement/listAccounts?faces-redirect=true";
 		
 	}
+	
+	public void box( Account accountSelected){
+		
+	Document document = new Document();
+	document.newPage();
+	try {
+
+		
+		
+	
+
+	
+		PdfWriter.getInstance(document,
+
+				new FileOutputStream("D:/Bank extract"+accountSelected.getNum()+".pdf"));
+
+		document.open();
+
+		Font font = new Font(Font.FontFamily.TIMES_ROMAN, 48, Font.ITALIC | Font.BOLD | Font.BOLD);
+
+		Paragraph p1 = new Paragraph("Account Extract ");
+		
+		Paragraph p2 = new Paragraph(""+accountSelected.getAmmount());
+		Paragraph p3 = new Paragraph("ammount:"+accountSelected.getNum());
+		
+
+		p1.setAlignment(Element.ALIGN_CENTER);
+		p2.setAlignment(Element.ALIGN_CENTER);
+		p3.setAlignment(Element.ALIGN_CENTER);
+		
+		document.add(p1);
+
+		// add blank line
+		document.add(Chunk.NEWLINE);
+		document.add(p2);
+		document.add(Chunk.NEWLINE);
+		document.add(p3);
+		
+		document.add(Chunk.NEWLINE);
+		
+
+		document.close();
+	} catch (Exception n) {
+		System.out.println(n);
+	}
+	document.close();
+	
+	
+    BoxAPIConnection api = new BoxAPIConnection("85Ns3BkpKyUvcbHhFirE4VXIfGjZV1gY");
+	BoxFolder rootFolder = BoxFolder.getRootFolder(api);
+	for (com.box.sdk.BoxItem.Info itemInfo : rootFolder) {
+	    System.out.format("[%s] %s\n", itemInfo.getID(), itemInfo.getName());
+	}
+
+	FileInputStream stream = null;
+	try {
+		stream = new FileInputStream("D:/Bank extract"+accountSelected.getNum()+".pdf");
+	} catch (FileNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	rootFolder.uploadFile(stream,"Bank extract"+accountSelected.getNum()+".pdf");
+	try {
+		stream.close();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+
+	
+
+}
+	
 	}
 	
 
