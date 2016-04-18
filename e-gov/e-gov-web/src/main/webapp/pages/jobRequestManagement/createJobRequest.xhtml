@@ -10,13 +10,17 @@
 		<h:dataTable value="#{companyOfferBean.companyOffers}" var="o"
 			border="2">
 			<h:column>
-				<f:facet name="header">description</f:facet>
+				<f:facet name="header">Workstation wanted</f:facet>
 				<h:outputText value="#{o.description}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Company</f:facet>
+				<h:outputText value="#{o.company.name}" />
 			</h:column>
 			<h:column>
 				<f:facet name="header">#</f:facet>
 
-				<h:commandButton action="#{companyOfferBean.doCreateJobRequest()}"
+				<h:commandButton action="#{companyOfferBean.doCreateJobRequest(o)}"
 					value="apply" />
 			</h:column>
 		</h:dataTable>

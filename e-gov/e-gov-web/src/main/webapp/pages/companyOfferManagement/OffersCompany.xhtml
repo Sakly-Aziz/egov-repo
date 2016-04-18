@@ -12,9 +12,15 @@
 			var="o">
 			<h:column>
 				<f:facet name="header">
-					<h:outputText value="description" />
+					<h:outputText value="Workstation wanted" />
 				</f:facet>
 				<h:outputText value="#{o.description}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Company" />
+				</f:facet>
+				<h:outputText value="#{o.company.name}" />
 			</h:column>
 			<h:column>
 				<f:facet name="header">
@@ -24,7 +30,7 @@
 					value="select" />
 			</h:column>
 		</h:dataTable>
-		<h:outputText value="description" />
+		<h:outputText value="Workstation wanted" />
 		<h:inputText value="#{companyOfferBean.companyOffer.description}" />
 		<h:outputText value="company ID" />
 		<h:inputText value="#{companyOfferBean.companyId}" />

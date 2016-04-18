@@ -5,28 +5,54 @@ import java.util.List;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
+
+import org.primefaces.component.datatable.DataTable;
 
 import egov.entities.CompanyOffer;
+import egov.entities.JobRequest;
 import egov.services.interfaces.CompanyOfferManagementLocal;
 
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class CompanyOfferBean {
 	private List<CompanyOffer> companyOffers = new ArrayList<>();
 	private CompanyOffer companyOffer = new CompanyOffer();
 	private CompanyOffer companyOfferSelected = new CompanyOffer();
+	private JobRequest jobRequest = new JobRequest();
+	private JobRequest jobRequestSelected = new JobRequest();
 	private Boolean visible = false;
 	private Integer companyId;
 	private Integer userId;
 	private Integer offerId;
-
+	private DataTable datatable;
 	@EJB
 	private CompanyOfferManagementLocal companyOfferManagementLocal;
 
 	public void select(CompanyOffer companyOffer) {
 		visible = true;
 		companyOfferSelected = companyOffer;
+	}
+
+	public void select(JobRequest jobRequest) {
+		visible = true;
+		jobRequestSelected = jobRequest;
+	}
+
+	public JobRequest getJobRequest() {
+		return jobRequest;
+	}
+
+	public void setJobRequest(JobRequest jobRequest) {
+		this.jobRequest = jobRequest;
+	}
+
+	public JobRequest getJobRequestSelected() {
+		return jobRequestSelected;
+	}
+
+	public void setJobRequestSelected(JobRequest jobRequestSelected) {
+		this.jobRequestSelected = jobRequestSelected;
 	}
 
 	public String doDelete() {
@@ -66,9 +92,9 @@ public class CompanyOfferBean {
 		this.offerId = offerId;
 	}
 
-	public String doCreateJobRequest() {
+	public String doCreateJobRequest(CompanyOffer co) {
 
-		companyOfferManagementLocal.createJobRequest(userId, offerId);
+		companyOfferManagementLocal.createJobRequest(3, co.getId());
 		return "";
 	}
 
@@ -119,6 +145,14 @@ public class CompanyOfferBean {
 
 	public void setCompanyId(Integer companyId) {
 		this.companyId = companyId;
+	}
+
+	public DataTable getDatatable() {
+		return datatable;
+	}
+
+	public void setDatatable(DataTable datatable) {
+		this.datatable = datatable;
 	}
 
 }
