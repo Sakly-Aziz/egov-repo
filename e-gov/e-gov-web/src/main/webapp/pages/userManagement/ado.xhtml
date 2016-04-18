@@ -46,18 +46,7 @@
 				<f:selectItem itemLabel="Female" itemValue="female" />
 </h:selectOneMenu>
 			
-			<h:outputText value="#{userManagementBean1.userSelected.gender}" />
 	
-
-			 
-				
-
-			
-
- <p:growl id="growl" life="2000" />
-     
-    <p:commandButton value="Add" id="ajax" update="growl" actionListener="#{userManagementBean1.buttonAction}"  action="#{userManagementBean1.doUpdateUser()}" styleClass="ui-priority-primary" />
- 
 
  
 
@@ -66,5 +55,13 @@
 		</h:panelGrid>
 
 	</h:form>
+	<h:form>
+    <p:remoteCommand name="rc" update="msgs" actionListener="#{userManagementBean1.doUpdateUser()}" />
+ 
+    <p:growl id="msgs" showDetail="true" />
+ <p:commandButton type="button" onclick="rc()" value="Execute" icon="ui-icon-refresh" />
+ 
+   <p:commandButton value="Save" update="panel" actionListener="#{userManagementBean1.save}" icon="ui-icon-check" />
+</h:form>
 	</ui:define>
 </ui:composition>

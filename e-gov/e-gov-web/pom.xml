@@ -9,6 +9,7 @@
 	</parent>
 	<artifactId>e-gov-web</artifactId>
 	<packaging>war</packaging>
+	
 
 	<properties>
 		<failOnMissingWebXml>false</failOnMissingWebXml>
@@ -34,7 +35,9 @@
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
+			
 		</dependency>
+		
 		<dependency>
 			<groupId>tn.esprit.fiveoverfive</groupId>
 			<artifactId>e-gov-ejb</artifactId>
@@ -45,6 +48,7 @@
 
 	<build>
 		<finalName>${project.artifactId}</finalName>
+		
 	</build>
 
 

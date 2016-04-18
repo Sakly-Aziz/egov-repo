@@ -308,6 +308,15 @@ public void setU(User u) {
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
 	
+    public void save() {
+        FacesContext.getCurrentInstance().addMessage(null,
+                new FacesMessage("Welcome "));
+    }
+    
+    public void submit() {
+        FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Correct", "Correct");
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+    }
 	}
 	
 

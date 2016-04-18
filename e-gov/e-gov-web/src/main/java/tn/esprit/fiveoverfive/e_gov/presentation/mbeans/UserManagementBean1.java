@@ -3,16 +3,15 @@ package tn.esprit.fiveoverfive.e_gov.presentation.mbeans;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+
 import javax.faces.bean.ViewScoped;
-import javax.faces.context.FacesContext;
-import javax.faces.event.ActionEvent;
+
 
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
@@ -75,7 +74,9 @@ public class UserManagementBean1 {
 	}
 
 	public String doAddUser() {
+		 
 		iUserMangementLocal.addUser(user);
+		 
 		return "/pages/userManagement/listUser?faces-redirect=true";
 	}
 
@@ -85,7 +86,10 @@ public class UserManagementBean1 {
 	}
 
 	public String doUpdateUser() {
+		
 		iUserMangementLocal.update(userSelected);
+		 
+	
 		return "/pages/userManagement/listUser?faces-redirect=true";
 	}
 
@@ -291,24 +295,6 @@ public class UserManagementBean1 {
 	
 
 }
-
-	public String getGender() {
-		return gender;
-	}
-
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-
-	
-    public void buttonAction(ActionEvent actionEvent) {
-        addMessage("Welcome in "+user.getFirstName()+" Bank");
-    }
-     
-    public void addMessage(String summary) {
-        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary,  null);
-        FacesContext.getCurrentInstance().addMessage(null, message);
-    }
-	
+	 
 
 }
