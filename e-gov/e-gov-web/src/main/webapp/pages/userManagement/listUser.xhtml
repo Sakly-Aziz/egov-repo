@@ -15,20 +15,20 @@
 				</f:facet>
 				<h:outputText value="#{c.firstName}" />
 			</h:column>
-				<h:column id="c11">
+			<h:column id="c11">
 				<f:facet name="header">
 					<h:outputText value="Last Name"></h:outputText>
 				</f:facet>
 				<h:outputText value="#{c.lastName}" />
 			</h:column>
-				<h:column id="c12">
+			<h:column id="c12">
 				<f:facet name="header">
 					<h:outputText value="Birth Place"></h:outputText>
 				</f:facet>
 				<h:outputText value="#{c.birthPlace}" />
 			</h:column>
-		
-				<h:column id="c16">
+
+			<h:column id="c16">
 				<f:facet name="header">
 					<h:outputText value="Mother's Name"></h:outputText>
 				</f:facet>
@@ -53,16 +53,16 @@
 				</f:facet>
 				<h:commandButton action="#{userManagementBean.doSelectUser(c)}"
 					value="select" />
-		</h:column>
+			</h:column>
 		</h:dataTable>
 		<h:panelGrid columns="2">
-				<h:outputText value="First Name" />
+			<h:outputText value="First Name" />
 			<h:inputText value="#{userManagementBean.userSelected.firstName}" />
 			<h:outputText value="Last Name" />
 			<h:inputText value="#{userManagementBean.userSelected.lastName}" />
 			<h:outputText value="Birth Place" />
 			<h:inputText value="#{userManagementBean.userSelected.birthPlace}" />
-	
+
 			<h:outputText value="Mother name" />
 			<h:inputText value="#{userManagementBean.userSelected.motherName}" />
 			<h:outputText value="Father Name" />
@@ -73,8 +73,8 @@
 				value="update" />
 
 
-			
-	</h:panelGrid>
+
+		</h:panelGrid>
 	</h:form>
 </body>
 </html>
