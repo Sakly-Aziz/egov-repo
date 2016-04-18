@@ -245,7 +245,7 @@ public void setU(User u) {
 
 		Font font = new Font(Font.FontFamily.TIMES_ROMAN, 48, Font.ITALIC | Font.BOLD | Font.BOLD);
 
-		Paragraph p1 = new Paragraph("Account Extract ");
+		Paragraph p1 = new Paragraph(" Account Extract ");
 		
 		Paragraph p2 = new Paragraph(""+accountSelected.getAmmount());
 		Paragraph p3 = new Paragraph("ammount:"+accountSelected.getNum());
