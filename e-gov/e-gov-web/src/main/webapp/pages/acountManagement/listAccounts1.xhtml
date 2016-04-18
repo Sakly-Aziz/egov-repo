@@ -13,7 +13,7 @@
 	<ui:define name="content">
 	<h1>Account Information</h1>
 	<h:form>
-		<h:dataTable value="#{accountManagementBean1.accounts}" var="c"
+		<h:dataTable value="#{accountManagementBean.account}" var="c"
 			border="2">
 			<h:column id="c1">
 				<f:facet name="header">
@@ -29,6 +29,8 @@
 			</h:column>
 
 
+
+
 			<h:column id="c995">
 				<f:facet name="header">
 					<h:outputText value="Bank Name"></h:outputText>
@@ -36,6 +38,13 @@
 				<h:outputText value="#{c.name}" />
 			</h:column>
 
+<h:column id="c266">
+				<f:facet name="header">
+					<h:outputText value="User"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{userManagementBean.userSelected.firstName}" />
+			</h:column>
+			
 			<h:column id="c3">
 				<f:facet name="header">
 					<h:outputText value="#"></h:outputText>
@@ -43,6 +52,7 @@
 				<h:commandButton
 					action="#{accountManagementBean.doDeleteAccount(c)}" value="delete" />
 			</h:column>
+			
 			<h:column id="c4">
 				<f:facet name="header">
 					<h:outputText value="#"></h:outputText>

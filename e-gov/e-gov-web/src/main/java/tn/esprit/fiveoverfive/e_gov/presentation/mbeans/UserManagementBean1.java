@@ -24,8 +24,8 @@ import egov.services.interfaces.IAccountManagementLocal;
 import egov.services.interfaces.IUserMangementLocal;
 
 @ManagedBean
-@SessionScoped
-public class UserManagementBean {
+@ViewScoped
+public class UserManagementBean1 {
 	@EJB
 	private IUserMangementLocal iUserMangementLocal;
 	private IAccountManagementLocal iAccountMangementLocal;

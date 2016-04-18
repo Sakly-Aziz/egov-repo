@@ -46,7 +46,6 @@ public class AccountManagementBean {
 	private Account accountSelected = new Account();
 
 	public List<Account> getAccounts() {
-		accounts = iAccountMangementLocal.findAll();
 		return accounts;
 	}
 
@@ -172,8 +171,9 @@ public void setU(User u) {
 
 		Font font = new Font(Font.FontFamily.TIMES_ROMAN, 48, Font.ITALIC | Font.BOLD | Font.BOLD);
 
-		Paragraph p1 = new Paragraph("Death Certificate ");
-		Paragraph p2 = new Paragraph("num"+accountSelected.getAmmount());
+		Paragraph p1 = new Paragraph("Account Extract ");
+		
+		Paragraph p2 = new Paragraph(""+accountSelected.getAmmount());
 		Paragraph p3 = new Paragraph("ammount:"+accountSelected.getNum());
 		
 
@@ -230,9 +230,8 @@ public void setU(User u) {
 			}
 	@PostConstruct
 	public void init() {
-		a.setNum(200);
-	a.setName("UBI");
-	a.setAmmount(1665);
+		accounts = iAccountMangementLocal.findAll();
+	setAccount(accounts.get(0));
 	
 				
 

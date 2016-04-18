@@ -18,38 +18,38 @@
 		<h:panelGrid columns="2">
 
 			<h:outputText value="First Name" />
-			<h:inputText value="#{userManagementBean.userSelected.firstName}" />
+			<h:inputText value="#{userManagementBean1.userSelected.firstName}"  required="true" />
 			<h:outputText value="Last Name" />
-			<h:inputText value="#{userManagementBean.userSelected.lastName}" />
+			<h:inputText value="#{userManagementBean1.userSelected.lastName}"  required="true" />
 			<h:outputText value="Birth date" />
-			<h:inputText value="#{userManagementBean.userSelected.birthDate}">
+			<h:inputText value="#{userManagementBean1.userSelected.birthDate}" required="true" >
 				<f:convertDateTime pattern="dd-MM-yyyy" />
 			</h:inputText>
 			<h:outputText value="Birth Place" />
-			<h:inputText value="#{userManagementBean.userSelected.birthPlace}" />
+			<h:inputText value="#{userManagementBean1.userSelected.birthPlace}" required="true"  />
 			<h:outputText value="Nationality" />
-			<h:inputText value="#{userManagementBean.userSelected.nationality}" />
+			<h:inputText value="#{userManagementBean1.userSelected.nationality}" required="true"  />
 					<h:outputText value="Cin number" />
-			<h:inputText value="#{userManagementBean.userSelected.numCin}" />
+			<h:inputText value="#{userManagementBean1.userSelected.numCin}"  required="true" />
 			<h:outputText value="Mother name" />
-			<h:inputText value="#{userManagementBean.userSelected.motherName}" />
+			<h:inputText value="#{userManagementBean1.userSelected.motherName}" required="true"  />
 			<h:outputText value="Father Name" />
-			<h:inputText value="#{userManagementBean.userSelected.fatherName}" />
+			<h:inputText value="#{userManagementBean1.userSelected.fatherName}" required="true"  />
 
 
-			<h:outputLabel for="gender" value="Gender: *" />
-			<h:selectOneMenu id="gender" value="#{userManagementBean.userSelected.gender}"
+			<h:outputLabel for="gender" value="Gender: *" required="true"  />
+			<h:selectOneMenu id="gender" value="#{userManagementBean1.userSelected.gender}"
 				required="true" label="Gender">
 
-				<f:selectItem itemLabel="--" itemValue="" />
+			
 				<f:selectItem itemLabel="Male" itemValue="male" />
 				<f:selectItem itemLabel="Female" itemValue="female" />
 </h:selectOneMenu>
 			
-			<h:outputText value="#{userManagementBean.userSelected.gender}" />
+			<h:outputText value="#{userManagementBean1.userSelected.gender}" />
 	
 
-			<h:commandButton action="#{userManagementBean.doUpdateUser()}"
+			<h:commandButton action="#{userManagementBean1.doUpdateUser()}"
 				value="Add" />
 
 

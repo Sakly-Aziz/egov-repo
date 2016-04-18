@@ -13,7 +13,7 @@
 	<ui:define name="content">
 		<h:form>
 			<h1>User Management</h1>
-			<h:dataTable value="#{userManagementBean.users1}" var="c" border="2">
+			<h:dataTable value="#{userManagementBean1.users1}" var="c" border="2">
 
 				<h:column id="c1">
 					<f:facet name="header">
@@ -75,47 +75,47 @@
 					<f:facet name="header">
 						<h:outputText value="#"></h:outputText>
 					</f:facet>
-					<h:commandButton action="#{userManagementBean.doDeleteUser(c)}"
+					<h:commandButton action="#{userManagementBean1.doDeleteUser(c)}"
 						value="delete" />
 				</h:column>
 					<h:column id="c34">
 				<f:facet name="header">
 					<h:outputText value="#"></h:outputText>
 				</f:facet>
-				<h:commandButton action="#{userManagementBean.doPdfBirth(c)}"
-					value="Print birth Certificate" />
+				<h:commandButton action="#{userManagementBean1.doPdfBirth(c)}"
+					value="Print" />
 			</h:column>
 				<h:column id="c3">
 					<f:facet name="header">
 						<h:outputText value="#"></h:outputText>
 					</f:facet>
-					<h:commandButton action="#{userManagementBean.doSelectUser(c)}"
+					<h:commandButton action="#{userManagementBean1.doSelectUser(c)}"
 						value="select" />
 				</h:column>
 			</h:dataTable>
 			<h:panelGrid columns="2">
 				<h:outputText value="First Name" />
-				<h:inputText value="#{userManagementBean.userSelected.firstName}" />
+				<h:inputText value="#{userManagementBean1.userSelected.firstName}" />
 				<h:outputText value="Last Name" />
-				<h:inputText value="#{userManagementBean.userSelected.lastName}" />
+				<h:inputText value="#{userManagementBean1.userSelected.lastName}" />
 				<h:outputText value="Birth date" />
-				<h:inputText value="#{userManagementBean.userSelected.birthDate}">
+				<h:inputText value="#{userManagementBean1.userSelected.birthDate}">
 					<f:convertDateTime pattern="dd-MM-yyyy" />
 				</h:inputText>
 				<h:outputText value="Birth Place" />
-				<h:inputText value="#{userManagementBean.userSelected.birthPlace}" />
+				<h:inputText value="#{userManagementBean1.userSelected.birthPlace}" />
 				<h:outputText value="Nationality" />
-				<h:inputText value="#{userManagementBean.userSelected.nationality}" />
+				<h:inputText value="#{userManagementBean1.userSelected.nationality}" />
 				<h:outputText value="Gender" />
-				<h:inputText value="#{userManagementBean.userSelected.gender}" />
+				<h:inputText value="#{userManagementBean1.userSelected.gender}" />
 				<h:outputText value="Cin number" />
-				<h:inputText value="#{userManagementBean.userSelected.numCin}" />
+				<h:inputText value="#{userManagementBean1.userSelected.numCin}" />
 				<h:outputText value="Mother name" />
-				<h:inputText value="#{userManagementBean.userSelected.motherName}" />
+				<h:inputText value="#{userManagementBean1.userSelected.motherName}" />
 				<h:outputText value="Father Name" />
-				<h:inputText value="#{userManagementBean.userSelected.fatherName}" />
+				<h:inputText value="#{userManagementBean1.userSelected.fatherName}" />
 
-				<h:commandButton action="#{userManagementBean.doUpdateUser()}"
+				<h:commandButton action="#{userManagementBean1.doUpdateUser()}"
 					value="update" />
 
 

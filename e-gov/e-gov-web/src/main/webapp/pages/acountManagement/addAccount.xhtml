@@ -14,14 +14,28 @@
 	<h:form>
 	<h1>Account information</h1>
 		<h:panelGrid columns="2">
-			<h:outputText value="num Account" />
-			<h:inputText value="#{accountManagementBean.account.num}" />
+			<h:outputText value="Num Account *" />
+			<h:inputText value="#{accountManagementBean.account.num}" required="true"  />
 			<h:outputText value="ammount" />
 			<h:inputText value="#{accountManagementBean.account.ammount}" />
-				<h:outputText value="Name of Bank" />
-			<h:inputText value="#{accountManagementBean.account.name}" />
 			
 			
+			
+				<h:outputLabel for="name" value="Bank Name  *" />
+			<h:selectOneMenu id="name" value="#{accountManagementBean.account.name}"
+				required="true" label="Bank Name">
+
+			
+				<f:selectItem itemLabel="UIB" itemValue="uib" />
+				<f:selectItem itemLabel="Amen Bank" itemValue="amen bank" />
+				<f:selectItem itemLabel="BIAT" itemValue="Biat" />
+				<f:selectItem itemLabel="BNA" itemValue="bna" />
+				<f:selectItem itemLabel="BTA" itemValue="bta" />
+				
+				
+</h:selectOneMenu>
+			
+			<h:outputText value="#{accountManagementBean.accountSelected.name}" />
 			
 			<h:commandButton action="#{accountManagementBean.doAddAccount()}" value="add" />
 		</h:panelGrid>
