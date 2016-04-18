@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+<h:form>
+
+		<h:dataTable value="#{constructorBean.constructors}" var="c" border="1">
+		
+	   <f:facet name="header">
+		<h:outputText value="tous les constructeurs" />
+		</f:facet>
+		
+	
+	<h:column id="c2">
+		<f:facet name="header">
+		<h:outputText value="Nom" />
+		</f:facet>
+		<h:outputText value="#{c.name}" />
+	</h:column>
+	<h:column id="c3">
+				<f:facet name="header">
+				<h:outputText value="#"></h:outputText>
+				</f:facet>
+				 <h:commandButton action="#{constructorBean.doSelectConstructor(c)}" value="selectioner" />
+	</h:column>
+	</h:dataTable>
+	<h:panelGrid columns="2">
+			<h:outputText value="nom" />
+			<h:inputText value="#{constructorBean.constructorSelected.name}" />
+			
+			
+			<h:commandButton action="/pages/carManagement/listCars" value="valider" >
+		<f:setPropertyActionListener value="#{constructorBean.constructorSelected.name}" target="#{constructorBean.constructor.name}"></f:setPropertyActionListener>		
+			</h:commandButton>
+		</h:panelGrid>
+</h:form>
+</body> 
+</html>
