@@ -49,9 +49,17 @@
 			<h:outputText value="#{userManagementBean1.userSelected.gender}" />
 	
 
-			<h:commandButton action="#{userManagementBean1.doUpdateUser()}"
-				value="Add" />
+			 
+				
 
+			
+
+ <p:growl id="growl" life="2000" />
+     
+    <p:commandButton value="Add" id="ajax" update="growl" actionListener="#{userManagementBean1.buttonAction}"  action="#{userManagementBean1.doUpdateUser()}" styleClass="ui-priority-primary" />
+ 
+
+ 
 
 
 

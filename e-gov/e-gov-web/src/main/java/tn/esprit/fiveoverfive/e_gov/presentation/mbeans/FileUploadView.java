@@ -53,7 +53,7 @@ public class FileUploadView {
 	
 		PdfWriter.getInstance(document,
 
-				new FileOutputStream("D:\\lol.pdf"));
+				new FileOutputStream(file+".pdf"));
 
 		document.open();
 

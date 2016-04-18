@@ -78,13 +78,13 @@
 					<h:commandButton action="#{userManagementBean1.doDeleteUser(c)}"
 						value="delete" />
 				</h:column>
-					<h:column id="c34">
-				<f:facet name="header">
-					<h:outputText value="#"></h:outputText>
-				</f:facet>
-				<h:commandButton action="#{userManagementBean1.doPdfBirth(c)}"
-					value="Print" />
-			</h:column>
+				<h:column id="c34">
+					<f:facet name="header">
+						<h:outputText value="#"></h:outputText>
+					</f:facet>
+					<h:commandButton action="#{userManagementBean1.doPdfBirth(c)}"
+						value="Print" />
+				</h:column>
 				<h:column id="c3">
 					<f:facet name="header">
 						<h:outputText value="#"></h:outputText>
@@ -106,14 +106,24 @@
 				<h:inputText value="#{userManagementBean1.userSelected.birthPlace}" />
 				<h:outputText value="Nationality" />
 				<h:inputText value="#{userManagementBean1.userSelected.nationality}" />
-				<h:outputText value="Gender" />
-				<h:inputText value="#{userManagementBean1.userSelected.gender}" />
+			
 				<h:outputText value="Cin number" />
 				<h:inputText value="#{userManagementBean1.userSelected.numCin}" />
 				<h:outputText value="Mother name" />
 				<h:inputText value="#{userManagementBean1.userSelected.motherName}" />
 				<h:outputText value="Father Name" />
 				<h:inputText value="#{userManagementBean1.userSelected.fatherName}" />
+					<h:outputLabel for="gender" value="Gender: *" required="true" />
+				<h:selectOneMenu id="gender"
+					value="#{userManagementBean1.userSelected.gender}" required="true"
+					label="Gender">
+
+
+					<f:selectItem itemLabel="Male" itemValue="male" />
+					<f:selectItem itemLabel="Female" itemValue="female" />
+				</h:selectOneMenu>
+
+				<h:outputText value="#{userManagementBean1.userSelected.gender}" />
 
 				<h:commandButton action="#{userManagementBean1.doUpdateUser()}"
 					value="update" />
