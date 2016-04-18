@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ejb.Local;
 
+import egov.entities.Account;
 import egov.entities.Car;
 import egov.entities.Kase;
 import egov.entities.User;
@@ -31,5 +32,6 @@ public interface IUserMangementLocal {
 	String findpwd(String email);
 
 	List<Kase> CaseByUser(User m);
+	 void affecterAccountUser(Account a , User u);
 
 }

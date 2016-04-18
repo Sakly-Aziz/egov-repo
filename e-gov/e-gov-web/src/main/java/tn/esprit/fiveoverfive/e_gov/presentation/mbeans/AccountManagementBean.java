@@ -1,13 +1,21 @@
 package tn.esprit.fiveoverfive.e_gov.presentation.mbeans;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
+import javax.sound.sampled.DataLine.Info;
 
+import com.box.sdk.BoxAPIConnection;
+import com.box.sdk.BoxFolder;
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
@@ -21,7 +29,7 @@ import egov.services.interfaces.IAccountManagementLocal;
 import egov.services.interfaces.IUserMangementLocal;
 
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class AccountManagementBean {
 	@EJB
 	private IAccountManagementLocal iAccountMangementLocal;
@@ -30,8 +38,10 @@ public class AccountManagementBean {
 	private List<Account> accounts = new ArrayList<>();
 	private float money;
 	private Account account = new Account();
-	private Account account2 = new Account();
 	
+	private Account account2 = new Account();
+	private Account a = new Account();
+	private User u=new User();
 	private User user=new User();
 	private Account accountSelected = new Account();
 
@@ -124,10 +134,26 @@ public void setiUserMangementLocal(IUserMangementLocal iUserMangementLocal) {
 	this.iUserMangementLocal = iUserMangementLocal;
 }
 
+public Account getA() {
+	return a;
+}
+
+public void setA(Account a) {
+	this.a = a;
+}
+
+public User getU() {
+	return u;
+}
+
+public void setU(User u) {
+	this.u = u;
+}
+
+
 	
-	/*
 	
-	public void doPdf(Account account){
+	public void doPdf( Account accountSelected){
 		
 	Document document = new Document();
 	document.newPage();
@@ -140,15 +166,15 @@ public void setiUserMangementLocal(IUserMangementLocal iUserMangementLocal) {
 	
 		PdfWriter.getInstance(document,
 
-				new FileOutputStream("D:\\Death-Certifcate.pdf"));
+				new FileOutputStream("D:\\lol"+accountSelected.getName()+".pdf"));
 
 		document.open();
 
 		Font font = new Font(Font.FontFamily.TIMES_ROMAN, 48, Font.ITALIC | Font.BOLD | Font.BOLD);
 
 		Paragraph p1 = new Paragraph("Death Certificate ");
-		Paragraph p2 = new Paragraph("num"+account.getAmmount());
-		Paragraph p3 = new Paragraph("ammount:"+account.getNum());
+		Paragraph p2 = new Paragraph("num"+accountSelected.getAmmount());
+		Paragraph p3 = new Paragraph("ammount:"+accountSelected.getNum());
 		
 
 		p1.setAlignment(Element.ALIGN_CENTER);
@@ -174,6 +200,48 @@ public void setiUserMangementLocal(IUserMangementLocal iUserMangementLocal) {
 	
 
 }
-	*/
 	
-}
+	public void box (){
+		
+
+	
+			
+		    BoxAPIConnection api = new BoxAPIConnection("rNaWj8PW32umeWpK4n48BgizZwRaolWD");
+			BoxFolder rootFolder = BoxFolder.getRootFolder(api);
+			for (com.box.sdk.BoxItem.Info itemInfo : rootFolder) {
+			    System.out.format("[%s] %s\n", itemInfo.getID(), itemInfo.getName());
+			}
+
+			FileInputStream stream = null;
+			try {
+				stream = new FileInputStream("D:/lol.pdf");
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			rootFolder.uploadFile(stream,"lol.pdf");
+			try {
+				stream.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			}
+	@PostConstruct
+	public void init() {
+		a.setNum(200);
+	a.setName("UBI");
+	a.setAmmount(1665);
+	
+				
+
+	}
+	public String doAffecterAcountToUser(){
+		iAccountMangementLocal.affecterAccountUser(a, u);
+		return "/pages/acountManagement/listAccounts?faces-redirect=true";
+		
+	}
+	}
+	
+
