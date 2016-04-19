@@ -1,19 +1,11 @@
 package tn.esprit.fiveoverfive.e_gov.presentation.mbeans;
 
-import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-
-import com.itextpdf.text.Chunk;
-import com.itextpdf.text.Document;
-import com.itextpdf.text.Element;
-import com.itextpdf.text.Font;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.PdfWriter;
 
 import egov.entities.Account;
 import egov.entities.User;
@@ -32,8 +24,8 @@ public class AccountManagementBean {
 	private Account account = new Account();
 	private Account account2 = new Account();
 	private Account a = new Account();
-	private User u=new User();
-	private User user=new User();
+	private User u = new User();
+	private User user = new User();
 	private Account accountSelected = new Account();
 
 	public List<Account> getAccounts() {
@@ -81,16 +73,17 @@ public class AccountManagementBean {
 	}
 
 	public String doSendMoney() {
-		iAccountMangementLocal.SendMoney(account.getNum(),account2.getNum(), money);
+		iAccountMangementLocal.SendMoney(account.getNum(), account2.getNum(), money);
 		return "/pages/acountManagement/listAccounts?faces-redirect=true";
 	}
-	
-	public List<Account> doFindAccountByUser(User u){
-		accounts=iAccountMangementLocal.findAllCarByIdUser(u);
+
+	public List<Account> doFindAccountByUser(User u) {
+		accounts = iAccountMangementLocal.findAllCarByIdUser(u);
 		return accounts;
 	}
-	public Account doFindAccountByNum(int num){
-		account=iAccountMangementLocal.findAccountByNum(num);
+
+	public Account doFindAccountByNum(int num) {
+		account = iAccountMangementLocal.findAccountByNum(num);
 		return account;
 	}
 
@@ -109,75 +102,69 @@ public class AccountManagementBean {
 	public void setMoney(float money) {
 		this.money = money;
 	}
-	
-	public String doAffecterAcountToUser(){
+
+	public String doAffecterAcountToUser() {
 		iAccountMangementLocal.affecterAccountUser(a, u);
 		return "/pages/acountManagement/listAccounts?faces-redirect=true";
-		
+
 	}
-public User dofindUserById (int id){
-	user=iUserMangementLocal.findUserById(id);
-	return user;
-	
-}
 
-public IUserMangementLocal getiUserMangementLocal() {
-	return iUserMangementLocal;
-}
+	public User dofindUserById(int id) {
+		user = iUserMangementLocal.findUserById(id);
+		return user;
 
-public void setiUserMangementLocal(IUserMangementLocal iUserMangementLocal) {
-	this.iUserMangementLocal = iUserMangementLocal;
-}
-	
+	}
+
+	public IUserMangementLocal getiUserMangementLocal() {
+		return iUserMangementLocal;
+	}
+
+	public void setiUserMangementLocal(IUserMangementLocal iUserMangementLocal) {
+		this.iUserMangementLocal = iUserMangementLocal;
+	}
+
 	/*
-	
-	public void doPdf(Account account){
-		
-	Document document = new Document();
-	document.newPage();
-	try {
+	 * 
+	 * public void doPdf(Account account){
+	 * 
+	 * Document document = new Document(); document.newPage(); try {
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * PdfWriter.getInstance(document,
+	 * 
+	 * new FileOutputStream("D:\\Death-Certifcate.pdf"));
+	 * 
+	 * document.open();
+	 * 
+	 * Font font = new Font(Font.FontFamily.TIMES_ROMAN, 48, Font.ITALIC |
+	 * Font.BOLD | Font.BOLD);
+	 * 
+	 * Paragraph p1 = new Paragraph("Death Certificate "); Paragraph p2 = new
+	 * Paragraph("num"+account.getAmmount()); Paragraph p3 = new
+	 * Paragraph("ammount:"+account.getNum());
+	 * 
+	 * 
+	 * p1.setAlignment(Element.ALIGN_CENTER);
+	 * p2.setAlignment(Element.ALIGN_CENTER);
+	 * p3.setAlignment(Element.ALIGN_CENTER);
+	 * 
+	 * document.add(p1);
+	 * 
+	 * // add blank line document.add(Chunk.NEWLINE); document.add(p2);
+	 * document.add(Chunk.NEWLINE); document.add(p3);
+	 * 
+	 * document.add(Chunk.NEWLINE);
+	 * 
+	 * 
+	 * document.close(); } catch (Exception n) { System.out.println(n); }
+	 * document.close();
+	 * 
+	 * 
+	 * }
+	 */
 
-		
-		
-	
-
-	
-		PdfWriter.getInstance(document,
-
-				new FileOutputStream("D:\\Death-Certifcate.pdf"));
-
-		document.open();
-
-		Font font = new Font(Font.FontFamily.TIMES_ROMAN, 48, Font.ITALIC | Font.BOLD | Font.BOLD);
-
-		Paragraph p1 = new Paragraph("Death Certificate ");
-		Paragraph p2 = new Paragraph("num"+account.getAmmount());
-		Paragraph p3 = new Paragraph("ammount:"+account.getNum());
-		
-
-		p1.setAlignment(Element.ALIGN_CENTER);
-		p2.setAlignment(Element.ALIGN_CENTER);
-		p3.setAlignment(Element.ALIGN_CENTER);
-		
-		document.add(p1);
-
-		// add blank line
-		document.add(Chunk.NEWLINE);
-		document.add(p2);
-		document.add(Chunk.NEWLINE);
-		document.add(p3);
-		
-		document.add(Chunk.NEWLINE);
-		
-
-		document.close();
-	} catch (Exception n) {
-		System.out.println(n);
-	}
-	document.close();
-	
-
-}
-	*/
-	
 }

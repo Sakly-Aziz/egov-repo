@@ -4,21 +4,7 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="e-gov-ejb">
 		<jta-data-source>java:/egov</jta-data-source>
-		<class>egov.entities.Account</class>
-		<class>egov.entities.Admin</class>
-		<class>egov.entities.Bills_fines</class>
-		<class>egov.entities.Car</class>
-		<class>egov.entities.Citizen</class>
-		<class>egov.entities.Company</class>
-		<class>egov.entities.CompanyOffer</class>
-		<class>egov.entities.Establishment</class>
-		<class>egov.entities.EstablishmentPk</class>
-		<class>egov.entities.JobRequest</class>
-		<class>egov.entities.Kase</class>
-		<class>egov.entities.University</class>
-		<class>egov.entities.User</class>
-		<class>egov.entities.Work</class>
-		<class>egov.entities.WorkPk</class>
+
 
 		<properties>
 		

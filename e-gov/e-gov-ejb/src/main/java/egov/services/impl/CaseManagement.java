@@ -8,10 +8,11 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import egov.entities.Kase;
+import egov.services.interfaces.ICaseManagementLocal;
 import egov.services.interfaces.ICaseManagementRemote;
 
 @Stateless
-public class CaseManagement implements ICaseManagementRemote {
+public class CaseManagement implements ICaseManagementRemote, ICaseManagementLocal {
 
 	@PersistenceContext
 	EntityManager Ca;

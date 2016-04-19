@@ -18,6 +18,7 @@ public class Kase implements Serializable {
 	private String nameCase;
 	private String judgment;
 	private Date dateCase;
+	public static final long serialVersionUID =1L ;
 	@ManyToOne
 	private User user;  
 
