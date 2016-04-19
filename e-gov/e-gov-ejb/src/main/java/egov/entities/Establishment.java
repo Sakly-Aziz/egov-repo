@@ -17,6 +17,7 @@ public class Establishment implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 
 	private EstablishmentPk pk;
+	private int idEstablishment;
 
 	private String level;
 	private Date inscriptionDate;

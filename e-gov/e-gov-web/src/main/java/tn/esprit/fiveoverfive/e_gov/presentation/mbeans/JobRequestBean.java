@@ -7,7 +7,6 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-
 import egov.entities.JobRequest;
 import egov.services.interfaces.JobRequestManagementLocal;
 
@@ -57,11 +56,11 @@ public class JobRequestBean {
 	public void setVisible(Boolean visible) {
 		this.visible = visible;
 	}
-	
-	public List<JobRequest> all(){
-		
+
+	public List<JobRequest> all() {
+
 		return jobRequestManagementLocal.findAllJobRequestsById(3);
-		
+
 	}
 
 }

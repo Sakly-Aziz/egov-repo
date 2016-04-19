@@ -95,7 +95,7 @@ public class CompanyOfferBean {
 	public String doCreateJobRequest(CompanyOffer co) {
 
 		companyOfferManagementLocal.createJobRequest(3, co.getId());
-		return "";
+		return "/pages/jobRequestManagement/Traitement?faces-redirect=true";
 	}
 
 	public List<CompanyOffer> getCompanyOffers() {

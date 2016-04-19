@@ -9,15 +9,17 @@
 	<h:form>
 		<h:panelGrid columns="2">
 			<h:outputText value="login" />
-			<h:inputText value="#{userManagementBean.user.login}" />
+			<h:inputText value="#{authentification.login}" />
 			<h:outputText value="password" />
-			<h:inputSecret value="#{userManagementBean.user.pwd}" />
-			<h:commandButton action="#{userManagementBean.doLogin()}"
-				value="login" />
+			<h:inputSecret value="#{authentification.password}" />
+			<h:commandButton action="#{authentification.Login()}"
+				value="Connect" />
 		</h:panelGrid>
 
 
 
 	</h:form>
+	
+	<div style="color: red;"> <h:messages showDetail="true" /></div>
 </body>
 </html>

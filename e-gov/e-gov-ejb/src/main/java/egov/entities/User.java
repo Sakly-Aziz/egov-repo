@@ -27,7 +27,7 @@ import javax.persistence.OneToMany;
 public class User implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idUser;
 	private String firstName;
 	private String lastName;
@@ -72,6 +72,10 @@ public class User implements Serializable {
 	private List<Bills_fines> bills;
 	@OneToMany(mappedBy = "user")
 	private List<Kase> kase;
+
+
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private List<Detail> detail;
 
 	public List<Kase> getKase() {
 		return kase;

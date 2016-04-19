@@ -6,6 +6,19 @@
 
 <h:head></h:head> 
 <body> 
-ok
+	
+<h:form>
+		
+			<h:panelGrid columns="2">
+			<h:outputLabel value="nom" />
+			<h:inputText value="#{constructorBean.constructor.name}" />
+			<h:commandButton actionListener="#{constructorBean.doSave()}"
+				value="ajouter" />
+
+			
+		</h:panelGrid>	
+		
+</h:form>
+
 </body> 
 </html>

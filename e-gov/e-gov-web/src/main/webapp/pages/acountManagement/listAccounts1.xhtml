@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" template="/index.xhtml">
+
+	<ui:define name="title">login page</ui:define>
+
+
+	<ui:define name="content">
+	<h1>Account Information</h1>
+	<h:form>
+		<h:dataTable value="#{accountManagementBean.account}" var="c"
+			border="2">
+			<h:column id="c1">
+				<f:facet name="header">
+					<h:outputText value="Account number"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{c.num}" />
+			</h:column>
+			<h:column id="c2">
+				<f:facet name="header">
+					<h:outputText value="Account amount"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{c.ammount}" />
+			</h:column>
+
+
+
+
+			<h:column id="c995">
+				<f:facet name="header">
+					<h:outputText value="Bank Name"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{c.name}" />
+			</h:column>
+
+<h:column id="c266">
+				<f:facet name="header">
+					<h:outputText value="User"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{userManagementBean.userSelected.firstName}" />
+			</h:column>
+			
+			<h:column id="c3">
+				<f:facet name="header">
+					<h:outputText value="#"></h:outputText>
+				</f:facet>
+				<h:commandButton
+					action="#{accountManagementBean.doDeleteAccount(c)}" value="delete" />
+			</h:column>
+			
+			<h:column id="c4">
+				<f:facet name="header">
+					<h:outputText value="#"></h:outputText>
+				</f:facet>
+				<h:commandButton
+					action="#{accountManagementBean.doSelectAccount(c)}" value="select" />
+			</h:column>
+			
+					<h:column id="c459">
+				<f:facet name="header">
+					<h:outputText value="#"></h:outputText>
+				</f:facet>
+				<h:commandButton
+					action="#{accountManagementBean.doPdf(c)}" value="Print extract" />
+			</h:column>
+			
+			
+			
+					<h:column id="c4559">
+				<f:facet name="header">
+					<h:outputText value="#"></h:outputText>
+				</f:facet>
+				<h:commandButton
+					action="#{accountManagementBean.box()}" value="upload" />
+			</h:column>
+
+		</h:dataTable>
+
+
+		<h:panelGrid columns="2">
+
+			<h:outputText value="Account number" />
+			<h:inputText value="#{accountManagementBean.accountSelected.num}" />
+			<h:outputText value="ammount" />
+			<h:inputText value="#{accountManagementBean.accountSelected.ammount}" />
+			<h:outputText value="Name of Bank" />
+			<h:inputText value="#{accountManagementBean.accountSelected.name}" />
+
+			<h:commandButton action="#{accountManagementBean.doUpdateAccount()}"
+				value="update" />
+		</h:panelGrid>
+		
+		<h:panelGrid columns="2">
+		<h:outputText value="num account1" />
+			<h:inputText value="#{accountManagementBean.account.num}" var="account1" />
+			<h:outputText value="ammount to send " />
+			<h:inputText value="#{accountManagementBean.money}" var="ammount" />
+		<h:panelGrid columns="2"> 
+		</h:panelGrid>
+	<h:outputText value="num account2" />
+			<h:inputText value="#{accountManagementBean.account2.num}" var="account2" />
+	
+			<h:commandButton action="#{accountManagementBean.doSendMoney()}" value="Send" />
+		</h:panelGrid>
+
+
+
+	</h:form>
+	</ui:define>
+</ui:composition>

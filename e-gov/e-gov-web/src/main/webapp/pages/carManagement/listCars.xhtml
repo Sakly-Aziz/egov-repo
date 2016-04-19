@@ -7,6 +7,7 @@
 <h:head></h:head>
 <body>
 	<h:form>
+
 		<h:dataTable value="#{carBean.cars}" var="c" border="2">
 			<h:column id="c1">
 				<f:facet name="header">
@@ -18,19 +19,51 @@
 				<f:facet name="header">
 					<h:outputText value="constructor"></h:outputText>
 				</f:facet>
-				<h:outputText value="#{c.constructor}" />
+				<h:outputText value="#{constructorBean.constructorSelected.name}" />
 			</h:column>
 			<h:column id="c3">
+				<f:facet name="header">
+					<h:outputText value="Couleur"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{c.color}" />
+			</h:column>
+			<h:column id="c4">
+				<f:facet name="header">
+					<h:outputText value="type"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{c.type}" />
+			</h:column>
+			<h:column id="c5">
+				<f:facet name="header">
+					<h:outputText value="modele"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{c.category}" />
+			</h:column>
+			<h:column id="c6">
+				<f:facet name="header">
+					<h:outputText value="prix"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{c.prix}" />
+			</h:column>
+			<h:column id="c7">
 				<f:facet name="header">
 					<h:outputText value="#"></h:outputText>
 				</f:facet>
 				<h:commandButton action="#{carBean.doDeleteCar(c)}" value="delete" />
 			</h:column>
-			<h:column id="c4">
+			<h:column id="c8">
 				<f:facet name="header">
 					<h:outputText value="#"></h:outputText>
 				</f:facet>
-				<h:commandButton action="#{carBean.doSelectCar(c)}" value="select" />
+				<h:commandButton action="#{carBean.doSelectCar(c)}" value="personaliser" />
+			</h:column>
+			<h:column id="c9">
+				<f:facet name="header">
+					<h:outputText value="#"></h:outputText>
+				</f:facet>
+			<h:commandButton action="/pages/carManagement/carSelected" value="valider" >
+		    <f:setPropertyActionListener value="#{carBean.carSelected}" target="#{carBean.car}"></f:setPropertyActionListener>		
+			</h:commandButton>
 			</h:column>
 		</h:dataTable>
 		<h:panelGrid columns="2">
@@ -38,9 +71,12 @@
 			<h:inputText value="#{carBean.carSelected.color}" />
 			<h:outputText value="type" />
 			<h:inputText value="#{carBean.carSelected.type}" />
-			<h:outputText value="constructor" />
-			<h:inputText value="#{carBean.carSelected.constructor}" />
-			<h:commandButton action="#{carBean.doUpdateCar()}" value="update" />
+			<h:outputText value="modele" />
+			<h:inputText value="#{carBean.carSelected.category}" />
+			<h:outputText value="prix" />
+			<h:inputText value="#{carBean.carSelected.prix}" />
+			
+			<h:commandButton action="#{carBean.doUpdateCar()}" value="personaliser" />
 		</h:panelGrid>
 
 	</h:form>

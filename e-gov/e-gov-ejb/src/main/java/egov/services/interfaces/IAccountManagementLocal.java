@@ -4,6 +4,7 @@ import java.util.List;
 import javax.ejb.Local;
 
 import egov.entities.Account;
+import egov.entities.User;
 
 @Local
 public interface IAccountManagementLocal {
@@ -20,5 +21,7 @@ public interface IAccountManagementLocal {
 	Account findAccountByNum(int num);
 
 	Boolean SendMoney(int num1, int num2, float ammount);
+	 List<Account> findAllCarByIdUser( User u);
+		void affecterAccountUser(Account a , User u);
 
 }

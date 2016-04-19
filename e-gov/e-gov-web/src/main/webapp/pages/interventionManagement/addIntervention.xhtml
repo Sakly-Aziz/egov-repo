@@ -8,12 +8,12 @@
 <body>
 	<h:form>
 		<h:panelGrid columns="2">
-			<h:outputText value="description" />
-			<h:inputText value="#{companyOfferBean.companyOffer.description}" />
-			<h:outputText value="company ID" />
-			<h:inputText value="#{companyOfferBean.companyId}" />
-			<h:commandButton action="#{companyOfferBean.doCreateCompanyOffer()}"
-				value="create" />
+			<h:outputText value="id Intervention" />
+			<h:inputText value="#{interventionManagementBean.intervention.idI}" />
+			<h:outputText value="name" />
+			<h:inputText value="#{interventionManagementBean.intervention.name}" />
+		
+			<h:commandButton action="#{interventionManagementBean.doAddIntervention()}" value="zid" />
 		</h:panelGrid>
 	</h:form>
 </body>

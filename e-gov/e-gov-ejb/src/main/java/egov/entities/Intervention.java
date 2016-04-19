@@ -1,0 +1,53 @@
+package egov.entities;
+
+import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
+public class Intervention implements Serializable {
+	@Id
+	private int idI;
+	private String name;
+	@OneToMany(mappedBy = "intervention", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private List<Detail> detail;
+
+	public int getIdI() {
+		return idI;
+	}
+	public void setIdI(int idI) {
+		this.idI = idI;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public List<Detail> getDetail() {
+		return detail;
+	}
+	public void setDetail(List<Detail> detail) {
+		this.detail = detail;
+	}
+	public Intervention() {
+		super();
+	}
+	public Intervention(int idI, String name, List<Detail> detail) {
+		super();
+		this.idI = idI;
+		this.name = name;
+		this.detail = detail;
+	}
+	
+	
+	
+	
+	
+
+}

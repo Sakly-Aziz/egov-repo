@@ -7,39 +7,40 @@
 <h:head></h:head>
 <body>
 	<h:form>
-		<h:dataTable value="#{accountManagementBean.accounts}" var="c" border="2">
+		<h:dataTable value="#{interventionManagementBean.interventions}" var="c" border="2">
 			<h:column id="c1">
 				<f:facet name="header">
-					<h:outputText value="Account number"></h:outputText>
+					<h:outputText value="id"></h:outputText>
 				</f:facet>
-				<h:outputText value="#{c.num}" />
+				<h:outputText value="#{c.idI}" />
 			</h:column>
 			<h:column id="c2">
 				<f:facet name="header">
-					<h:outputText value="Account amount"></h:outputText>
+					<h:outputText value="name"></h:outputText>
 				</f:facet>
-				<h:outputText value="#{c.ammount}" />
+				<h:outputText value="#{c.name}" />
 			</h:column>
 			<h:column id="c3">
 				<f:facet name="header">
 					<h:outputText value="#"></h:outputText>
 				</f:facet>
-				<h:commandButton action="#{accountManagementBean.doDeleteAccount(c)}" value="delete" />
+				<h:commandButton action="#{interventionManagementBean.doDeleteIntervention(c)}" value="delete" />
 			</h:column>
 			<h:column id="c4">
 				<f:facet name="header">
 					<h:outputText value="#"></h:outputText>
 				</f:facet>
-				<h:commandButton action="#{accountManagementBean.doSelectAccount(c)}" value="select" />
+				<h:commandButton action="#{interventionManagementBean.doSelectIntervention(c)}" value="select" />
 			</h:column>
 		</h:dataTable>
 		<h:panelGrid columns="2">
-			
-	<h:outputText value="Account number" />
-			<h:inputText value="#{accountManagementBean.account.num}" />
-			<h:outputText value="ammount" />
-			<h:inputText value="#{accountManagementBean.account.ammount}" />
-			<h:commandButton action="#{accountManagementBean.doUpdateAccount()}" value="update" />
+		
+			<h:outputText value="id" />
+			<h:inputText value="#{interventionManagementBean.interventionSelected.idI}" />
+					<h:outputText value="name" />
+			<h:inputText value="#{interventionManagementBean.interventionSelected.name}" />
+		
+			<h:commandButton action="#{interventionManagementBean.doUpdateIntervention()}" value="update" />
 		</h:panelGrid>
 
 	</h:form>
