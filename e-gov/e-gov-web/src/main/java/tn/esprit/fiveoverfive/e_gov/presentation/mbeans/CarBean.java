@@ -1,4 +1,3 @@
-
 package tn.esprit.fiveoverfive.e_gov.presentation.mbeans;
 
 import java.util.ArrayList;
@@ -64,5 +63,6 @@ public class CarBean {
 	public void setCarSelected(Car carSelected) {
 		this.carSelected = carSelected;
 	}
-
+	
 }
+

@@ -26,7 +26,16 @@ public class Car implements Serializable {
 	private String color;
 	private String type;
 	private String category;
+	private int prix;
 	
+
+	public int getPrix() {
+		return prix;
+	}
+
+	public void setPrix(int prix) {
+		this.prix = prix;
+	}
 
 	@ManyToOne(cascade=CascadeType.PERSIST)
 	private User user;
@@ -111,7 +120,5 @@ public class Car implements Serializable {
 	public Car() {
 		super();
 	}
-	
-	
 
 }

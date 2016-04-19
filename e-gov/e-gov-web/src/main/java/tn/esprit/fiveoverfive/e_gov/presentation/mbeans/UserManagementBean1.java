@@ -3,13 +3,15 @@ package tn.esprit.fiveoverfive.e_gov.presentation.mbeans;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.faces.bean.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+
 import javax.faces.bean.ViewScoped;
+
 
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
@@ -24,8 +26,8 @@ import egov.services.interfaces.IAccountManagementLocal;
 import egov.services.interfaces.IUserMangementLocal;
 
 @ManagedBean
-@SessionScoped
-public class UserManagementBean {
+@ViewScoped
+public class UserManagementBean1 {
 	@EJB
 	private IUserMangementLocal iUserMangementLocal;
 	private IAccountManagementLocal iAccountMangementLocal;
@@ -72,7 +74,9 @@ public class UserManagementBean {
 	}
 
 	public String doAddUser() {
+		 
 		iUserMangementLocal.addUser(user);
+		 
 		return "/pages/userManagement/listUser?faces-redirect=true";
 	}
 
@@ -82,7 +86,10 @@ public class UserManagementBean {
 	}
 
 	public String doUpdateUser() {
+		
 		iUserMangementLocal.update(userSelected);
+		 
+	
 		return "/pages/userManagement/listUser?faces-redirect=true";
 	}
 
@@ -288,14 +295,10 @@ public class UserManagementBean {
 	
 
 }
-
-	public String getGender() {
-		return gender;
-	}
-
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-
+	  public void submit() {
+	        FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Correct", "Correct");
+	        FacesContext.getCurrentInstance().addMessage(null, msg);
+	    }
+	 
 
 }

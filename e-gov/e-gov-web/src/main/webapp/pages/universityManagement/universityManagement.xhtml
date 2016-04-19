@@ -2,12 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head></h:head>
-<body>
+<h:body>
 	<h1>list of universities</h1>
-	<h:form>
+
+		<h:form id="form5" enctype="multipart/form-data" >
 		<h:dataTable value="#{universityBean.universities}" var="u" border="2">
 			<h:column>
 				<f:facet name="header">
@@ -34,8 +36,8 @@
 				<h:commandButton action="#{universityBean.select(u)}" value="select" />
 			</h:column>
 		</h:dataTable>
-		<h:commandButton action="#{universityBean.show()}" value="add" />
-		<h:panelGrid columns="2" rendered="#{universityBean.visible}">
+	
+	
 			<h:outputText value="name" />
 			<h:inputText
 				value="#{universityBean.universitySelected.nameUniversity}" />
@@ -43,15 +45,22 @@
 			<h:inputText value="#{universityBean.universitySelected.adress}" />
 			<h:outputText value="phone" />
 			<h:inputText value="#{universityBean.universitySelected.phone}" />
+<h:inputFile value="#{universityBean.universitySelected.file}"  > </h:inputFile>  
+        
+        
+  <br/>
+
+
 			<h:panelGrid columns="3">
 				<h:commandButton action="#{universityBean.doDelete()}"
 					value="delete" />
 				<h:commandButton action="#{universityBean.doSaveOrUpdate()}"
 					value="save or update" />
 				<h:commandButton action="#{universityBean.cancel()}" value="cancel" />
-			</h:panelGrid>
-		</h:panelGrid>
-
-	</h:form>
-</body>
+			
+		
+	</h:panelGrid>
+		</h:form>
+	
+</h:body>
 </html>

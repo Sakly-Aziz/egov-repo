@@ -1,12 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
 
 <h:head></h:head>
-<body> 
-<h1>Subscribe in university</h1>
+<body>
+	<h1>Subscribe in university</h1>
 	<h:form>
 		<h:dataTable value="#{universityBean.universities}" var="u" border="2">
 			<h:column>
@@ -15,16 +15,38 @@
 				</f:facet>
 				<h:outputText value="#{u.nameUniversity}" />
 			</h:column>
-				<h:column>
+			<h:column>
 				<f:facet name="header">
 					<h:outputText value="#" />
 				</f:facet>
-				<h:commandButton action="#{universityBean.select(u)}" value="select" />
+				<h:commandButton action="#{universityBean.select(u)}" value="Add Inscription" />
 			</h:column>
 		</h:dataTable>
-		<h:commandButton action="#{universityBean.show()}" value="add Inscription" />
-		<h:panelGrid columns="2" rendered="#{universityBean.visible}">
-			<h:outputText value="" />		</h:panelGrid>
-</h:form>
-</body> 
+		<h:commandButton action="#{universityBean.show()}"
+			value="" />
+			<h:panelGrid columns="2" rendered="#{universityBean.visible}">
+			<h:outputText value="User" />
+			<h:inputText
+				value="#{inscriptionBean.user.idUser}" />
+			<h:outputText value="University" />
+               	<h:inputText
+				value="#{universityBean.universitySelected.nameUniversity}" />
+		
+			
+			<h:outputText value="fees" />
+			<h:inputText value="#{inscriptionBean.fees}" />
+			<h:outputText value="Level" />
+			<h:inputText value="#{inscriptionBean.level}" />
+			<h:panelGrid columns="3">
+					<h:commandButton action="#{inscriptionBean.doSaveOrUpdate()}"
+					value="save or update" />
+			
+			</h:panelGrid>
+	
+			</h:panelGrid>
+
+			
+		
+	</h:form>
+</body>
 </html>

@@ -92,6 +92,7 @@
 					<h:commandButton action="#{userManagementBean1.doSelectUser(c)}"
 						value="select" />
 				</h:column>
+		
 			</h:dataTable>
 			<h:panelGrid columns="2">
 				<h:outputText value="First Name" />
@@ -127,6 +128,9 @@
 
 				<h:commandButton action="#{userManagementBean1.doUpdateUser()}"
 					value="update" />
+					<h:commandButton action="/pages/acountManagement/listAccounts1" value="valider" >
+		<f:setPropertyActionListener value="#{userManagementBean.userSelected}" target="#{userManagementBean.user}"></f:setPropertyActionListener>		
+			</h:commandButton>
 
 
 

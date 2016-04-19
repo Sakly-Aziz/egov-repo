@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import egov.entities.Account;
 import egov.entities.Car;
 import egov.entities.Kase;
 import egov.entities.User;
@@ -125,6 +126,21 @@ public class UserManagement implements IUserManagementRemote, IUserMangementLoca
 		Query query = Us.createQuery(rq).setParameter("id", m.getIdUser());
 		return query.getResultList();
 
+	}
+	public void affecterAccountUser(Account a , User u)
+	{
+		a=Us.find(Account.class, a.getNum());
+		u=Us.find(User.class, u.getIdUser());
+		List<Account> accounts=new ArrayList<>();
+		accounts=u.getAccounts();
+		
+		
+		a.setUser(u);
+		Us.merge(a);
+		accounts.add(a);
+		u.setAccounts(accounts);
+		Us.merge(u);
+		
 	}
 
 }

@@ -13,7 +13,7 @@
 	<ui:define name="content">
 	<h1>Account Information</h1>
 	<h:form>
-		<h:dataTable value="#{accountManagementBean.accounts}" var="c"
+		<h:dataTable value="#{accountManagementBean.account}" var="c"
 			border="2">
 			<h:column id="c1">
 				<f:facet name="header">
@@ -29,6 +29,8 @@
 			</h:column>
 
 
+
+
 			<h:column id="c995">
 				<f:facet name="header">
 					<h:outputText value="Bank Name"></h:outputText>
@@ -36,6 +38,13 @@
 				<h:outputText value="#{c.name}" />
 			</h:column>
 
+<h:column id="c266">
+				<f:facet name="header">
+					<h:outputText value="User"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{userManagementBean.userSelected.firstName}" />
+			</h:column>
+			
 			<h:column id="c3">
 				<f:facet name="header">
 					<h:outputText value="#"></h:outputText>
@@ -43,6 +52,7 @@
 				<h:commandButton
 					action="#{accountManagementBean.doDeleteAccount(c)}" value="delete" />
 			</h:column>
+			
 			<h:column id="c4">
 				<f:facet name="header">
 					<h:outputText value="#"></h:outputText>
@@ -66,39 +76,10 @@
 					<h:outputText value="#"></h:outputText>
 				</f:facet>
 				<h:commandButton
-					action="#{accountManagementBean.box(c)}" value="upload" />
+					action="#{accountManagementBean.box()}" value="upload" />
 			</h:column>
 
 		</h:dataTable>
-
-
-		<h:panelGrid columns="2">
-
-			<h:outputText value="Account number" />
-			<h:inputText value="#{accountManagementBean.accountSelected.num}"  />
-			<h:outputText value="ammount" />
-			<h:inputText value="#{accountManagementBean.accountSelected.ammount}" />
-				<h:outputLabel for="name" value="Bank Name  *" />
-			<h:selectOneMenu id="name" value="#{accountManagementBean.account.name}"
-				required="true" label="Bank Name">
-
-			
-				<f:selectItem itemLabel="UIB" itemValue="uib" />
-				<f:selectItem itemLabel="Amen Bank" itemValue="amen bank" />
-				<f:selectItem itemLabel="BIAT" itemValue="Biat" />
-				<f:selectItem itemLabel="BNA" itemValue="bna" />
-				<f:selectItem itemLabel="BTA" itemValue="bta" />
-				
-				
-</h:selectOneMenu>
-			
-			<h:outputText value="#{accountManagementBean.accountSelected.name}" />
-
-			<h:commandButton action="#{accountManagementBean.doUpdateAccount()}"
-				value="update" />
-		</h:panelGrid>
-		
-
 
 
 

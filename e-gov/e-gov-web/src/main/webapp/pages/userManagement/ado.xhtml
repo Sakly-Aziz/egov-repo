@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" template="/index.xhtml">
+
+	<ui:define name="title">login page</ui:define>
+
+
+	<ui:define name="content">
+
+
+	<h:form>
+		<h1>Baby Registration</h1>
+		<h:panelGrid columns="2">
+
+			<h:outputText value="First Name" />
+			<h:inputText value="#{userManagementBean1.userSelected.firstName}"  required="true" />
+			<h:outputText value="Last Name" />
+			<h:inputText value="#{userManagementBean1.userSelected.lastName}"  required="true" />
+			<h:outputText value="Birth date" />
+			<h:inputText value="#{userManagementBean1.userSelected.birthDate}" required="true" >
+				<f:convertDateTime pattern="dd-MM-yyyy" />
+			</h:inputText>
+			<h:outputText value="Birth Place" />
+			<h:inputText value="#{userManagementBean1.userSelected.birthPlace}" required="true"  />
+			<h:outputText value="Nationality" />
+			<h:inputText value="#{userManagementBean1.userSelected.nationality}" required="true"  />
+					<h:outputText value="Cin number" />
+			<h:inputText value="#{userManagementBean1.userSelected.numCin}"  required="true" />
+			<h:outputText value="Mother name" />
+			<h:inputText value="#{userManagementBean1.userSelected.motherName}" required="true"  />
+			<h:outputText value="Father Name" />
+			<h:inputText value="#{userManagementBean1.userSelected.fatherName}" required="true"  />
+
+
+			<h:outputLabel for="gender" value="Gender: *" required="true"  />
+			<h:selectOneMenu id="gender" value="#{userManagementBean1.userSelected.gender}"
+				required="true" label="Gender">
+
+			
+				<f:selectItem itemLabel="Male" itemValue="male" />
+				<f:selectItem itemLabel="Female" itemValue="female" />
+</h:selectOneMenu>
+			
+	
+
+ 
+
+
+
+		</h:panelGrid>
+
+	</h:form>
+	<h:form>
+    <p:remoteCommand name="rc" update="msgs" actionListener="#{userManagementBean1.doUpdateUser()}" />
+ 
+    <p:growl id="msgs" showDetail="true" />
+ <p:commandButton type="button" onclick="rc()" value="Execute" icon="ui-icon-refresh" />
+ 
+   <p:commandButton value="Save" update="panel" actionListener="#{userManagementBean1.save}" icon="ui-icon-check" />
+</h:form>
+	</ui:define>
+</ui:composition>
