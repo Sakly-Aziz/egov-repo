@@ -85,8 +85,8 @@ public class testUser2 {
 					.lookup("egov.ejb/UserManagement!sessionbeans.IUserManagementRemote");
 
 			User user = ge.findUserById(1);
-			user.setMere(null);
-			user.setPere(null);
+			//user.setMere(null);
+			//user.setPere(null);
 
 		
 			if (ge.remove(user)) {
