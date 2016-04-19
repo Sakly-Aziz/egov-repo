@@ -1,13 +1,55 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" template="/index.xhtml">
 
-<h:head></h:head> 
+	<ui:define name="title">Home page</ui:define>
 
-<h:body> 
-<h1>Hi admin  </h1>
-<h1>hello M/Mrs : #{authentification.user.firstName}</h1>
-</h:body> 
-</html>
+
+	<ui:define name="content">
+		<h:form>
+		<h2><a>hello M/Mrs : #{authentification.user.firstName}</a></h2>
+
+<h2>
+			<a
+				href="http://localhost:18080/e-gov-web/pages/userManagement/listUser.jsf">
+				User Management</a></h2>
+		<h2>	<a
+				href="http://localhost:18080/e-gov-web/pages/acountManagement/listAccounts.jsf">
+				 Bank Account Management</a></h2>
+
+		<h2>	<a
+				href="http://localhost:18080/e-gov-web/pages/acountManagement/sendMoney.jsf">
+				Send Money</a></h2>
+
+		
+			<h2><a
+				href="http://localhost:18080/e-gov-web/pages/constructorManagement/listCars.jsf">
+				Car management</a></h2>
+
+			<h2><a
+				href="http://localhost:18080/e-gov-web/pages/caseManagement/listCase.jsf">
+				Case Management</a></h2>
+			<h2><a
+				href="http://localhost:18080/e-gov-web/pages/interventionManagement/addIntervention.jsf">
+				Intervention</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+		</h:form>
+
+	</ui:define>
+</ui:composition>

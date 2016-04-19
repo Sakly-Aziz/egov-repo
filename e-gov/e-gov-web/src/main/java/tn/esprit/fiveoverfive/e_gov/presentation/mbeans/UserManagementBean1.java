@@ -77,7 +77,7 @@ public class UserManagementBean1 {
 		 
 		iUserMangementLocal.addUser(user);
 		 
-		return "/pages/userManagement/listUser?faces-redirect=true";
+		return "";
 	}
 
 	public String doDeleteUser(User userSelected) {
@@ -90,7 +90,7 @@ public class UserManagementBean1 {
 		iUserMangementLocal.update(userSelected);
 		 
 	
-		return "/pages/userManagement/listUser?faces-redirect=true";
+		return "";
 	}
 
 	public void doSelectUser(User u) {
