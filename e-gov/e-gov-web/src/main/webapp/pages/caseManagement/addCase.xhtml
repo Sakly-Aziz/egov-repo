@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui"
+	template="/index.xhtml">
+
+<ui:define name="title">Add of case</ui:define>
+
+
+<ui:define name="content">
+	<h:form>
+		<h1>Form of a Case</h1>
+
+		<h:panelGrid columns="2">
+
+			<h:outputText value="Name of Case" />
+			<h:inputText value="#{caseBean.caseSelected.nameCase}" />
+
+			<h:outputText value="judgment" />
+			<h:inputText value="#{caseBean.caseSelected.judgment}" />
+            
+            <h:outputText value="Date of case" />
+            <h:inputText id="date" value="#{caseBean.caseSelected.dateCase}"
+					required="true" requiredMessage="Champ obligatoire"
+					 converterMessage="Date erroné">
+					<f:ajax event="blur" render="mdate"></f:ajax>
+					<f:convertDateTime pattern="MM/dd/yyyy" />
+				</h:inputText>
+				<h:message for="date" id="mdate" style="color:red" />
+            
+			
+			
+			
+
+			<h:commandButton action="#{caseBean.doAddCase()}"
+				value="Add"/>
+				
+
+		</h:panelGrid>
+	</h:form>
+</ui:define>
+	</ui:composition>
