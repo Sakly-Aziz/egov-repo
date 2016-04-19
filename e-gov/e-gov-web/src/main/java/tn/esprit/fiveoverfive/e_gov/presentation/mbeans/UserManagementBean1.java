@@ -295,6 +295,10 @@ public class UserManagementBean1 {
 	
 
 }
+	  public void submit() {
+	        FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Correct", "Correct");
+	        FacesContext.getCurrentInstance().addMessage(null, msg);
+	    }
 	 
 
 }

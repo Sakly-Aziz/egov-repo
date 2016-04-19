@@ -11,30 +11,35 @@
 
 
 	<ui:define name="content">
-
+<h:form enctype="multipart/form-data">
+			<p:growl id="messages" showDetail="true" />
+</h:form>
+		<h:form>
+			<p:growl id="growl" life="2000" />
+</h:form>
 
 	<h:form>
 		<h1>Baby Registration</h1>
 		<h:panelGrid columns="2">
 
 			<h:outputText value="First Name" />
-			<h:inputText value="#{userManagementBean1.userSelected.firstName}"  required="true" />
+			<h:inputText value="#{userManagementBean1.userSelected.firstName}"  required="true"   requiredMessage="You should write the First name"/>
 			<h:outputText value="Last Name" />
-			<h:inputText value="#{userManagementBean1.userSelected.lastName}"  required="true" />
+			<h:inputText value="#{userManagementBean1.userSelected.lastName}"   required="true"   requiredMessage="You should write the Last name"/>
 			<h:outputText value="Birth date" />
-			<h:inputText value="#{userManagementBean1.userSelected.birthDate}" required="true" >
+			<h:inputText value="#{userManagementBean1.userSelected.birthDate}" required="true"   requiredMessage="You should write the Birth Date" >
 				<f:convertDateTime pattern="dd-MM-yyyy" />
 			</h:inputText>
 			<h:outputText value="Birth Place" />
-			<h:inputText value="#{userManagementBean1.userSelected.birthPlace}" required="true"  />
+			<h:inputText value="#{userManagementBean1.userSelected.birthPlace}" required="true" requiredMessage="You should write the Birth Place" />
 			<h:outputText value="Nationality" />
-			<h:inputText value="#{userManagementBean1.userSelected.nationality}" required="true"  />
+			<h:inputText value="#{userManagementBean1.userSelected.nationality}" required="true" requiredMessage="You should write Nationality"  />
 					<h:outputText value="Cin number" />
-			<h:inputText value="#{userManagementBean1.userSelected.numCin}"  required="true" />
+			<h:inputText value="#{userManagementBean1.userSelected.numCin}"    />
 			<h:outputText value="Mother name" />
-			<h:inputText value="#{userManagementBean1.userSelected.motherName}" required="true"  />
+			<h:inputText value="#{userManagementBean1.userSelected.motherName}" required="true" requiredMessage="You should write the mother's name"  />
 			<h:outputText value="Father Name" />
-			<h:inputText value="#{userManagementBean1.userSelected.fatherName}" required="true"  />
+			<h:inputText value="#{userManagementBean1.userSelected.fatherName}" required="true"  requiredMessage="You should write the mother's name"  />
 
 
 			<h:outputLabel for="gender" value="Gender: *" required="true"  />

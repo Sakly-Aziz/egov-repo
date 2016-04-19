@@ -4,12 +4,12 @@ import java.util.List;
 
 import javax.ejb.Local;
 
-import egov.entities.Establishment;
+import egov.entities.*;
 
 @Local
 public interface InscriptionManagementLocal {
 
-	Boolean addInscription(Establishment u);
+	Boolean addInscription(Establishment u );
 
 	Boolean update(Establishment u);
 
@@ -24,4 +24,7 @@ public interface InscriptionManagementLocal {
 	Establishment findInscriptionById(int idEstablishment);
 
 	Boolean removeInscriptionById(int idEstablishment);
+	Boolean createInscription(Establishment est);
+	User findUserId(int idd);
+	University findUniversityId(int idd);
 }
