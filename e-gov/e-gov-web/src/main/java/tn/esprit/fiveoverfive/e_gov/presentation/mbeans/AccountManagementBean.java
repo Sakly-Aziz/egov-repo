@@ -54,6 +54,7 @@ public class AccountManagementBean {
 	}
 
 	public void setAccounts(List<Account> accounts) {
+		accounts = iAccountMangementLocal.findAll();
 		this.accounts = accounts;
 	}
 
@@ -62,6 +63,7 @@ public class AccountManagementBean {
 	}
 
 	public Account getAccount() {
+		
 		return account;
 	}
 
@@ -214,8 +216,6 @@ public void setU(User u) {
 			
 	@PostConstruct
 	public void init() {
-		accounts = iAccountMangementLocal.findAll();
-	setAccount(accounts.get(0));
 	
 				
 

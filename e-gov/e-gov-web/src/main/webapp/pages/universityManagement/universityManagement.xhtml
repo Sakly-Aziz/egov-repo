@@ -45,7 +45,7 @@
 			<h:inputText value="#{universityBean.universitySelected.adress}" />
 			<h:outputText value="phone" />
 			<h:inputText value="#{universityBean.universitySelected.phone}" />
-<h:inputFile value="#{universityBean.universitySelected.file}"  > </h:inputFile>  
+
         
         
   <br/>
@@ -54,7 +54,7 @@
 			<h:panelGrid columns="3">
 				<h:commandButton action="#{universityBean.doDelete()}"
 					value="delete" />
-				<h:commandButton action="#{universityBean.doSaveOrUpdate()}"
+				<h:commandButton action="#{universityBean.doAddUniviersity()}"
 					value="save or update" />
 				<h:commandButton action="#{universityBean.cancel()}" value="cancel" />
 			

@@ -59,7 +59,7 @@ public class User implements Serializable {
 	@OneToMany(mappedBy = "user")
 	private List<JobRequest> jobRequests;
 
-	@OneToMany(mappedBy = "user1")
+	@OneToMany(mappedBy = "user")
 	private List<Establishment> establishment;
 	@OneToMany(mappedBy = "user")
 	private List<Work> work;
