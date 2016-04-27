@@ -46,7 +46,7 @@ public class AccountManagementBean {
 		return accounts;
 	}
 	public void setAccounts(List<Account> accounts) {
-		accounts = iAccountMangementLocal.findAll();
+		
 		this.accounts = accounts;
 	}
 	public void doSelectAccount(Account u) {
@@ -67,7 +67,7 @@ public class AccountManagementBean {
 	}
 	public String doAddAccount() {
 		iAccountMangementLocal.addAccount(account);
-		return "/pages/acountManagement/listAccounts?faces-redirect=true";
+		return "";
 	}
 	public String doDeleteAccount(Account accountSelected) {
 		iAccountMangementLocal.removeAccount(accountSelected);
@@ -79,7 +79,7 @@ public class AccountManagementBean {
 	}
 	public String doSendMoney() {
 		iAccountMangementLocal.SendMoney(account.getNum(),account2.getNum(), money);
-		return "/pages/acountManagement/listAccounts?faces-redirect=true";
+		return "";
 	}
 	
 	public List<Account> doFindAccountByUser(User u){
@@ -174,6 +174,7 @@ public void setU(User u) {
 			
 	@PostConstruct
 	public void init() {
+		accounts = iAccountMangementLocal.findAll();
 	
 				
 	}
@@ -221,7 +222,7 @@ public void setU(User u) {
 	document.close();
 	
 	
-    BoxAPIConnection api = new BoxAPIConnection("85Ns3BkpKyUvcbHhFirE4VXIfGjZV1gY");
+    BoxAPIConnection api = new BoxAPIConnection("jHtAjCYBVODYx7Me2Df33Wrara0IDg2v");
 	BoxFolder rootFolder = BoxFolder.getRootFolder(api);
 	for (com.box.sdk.BoxItem.Info itemInfo : rootFolder) {
 	    System.out.format("[%s] %s\n", itemInfo.getID(), itemInfo.getName());

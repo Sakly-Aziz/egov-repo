@@ -21,10 +21,11 @@ public class Constructor implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	private int id;
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	
-	private int id;
 	public int getId() {
 		return id;
 	}
@@ -38,8 +39,9 @@ public class Constructor implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	@OneToMany(mappedBy="constructor")
+	
 	private List<Car> cars;
+	@OneToMany(mappedBy="constructor")
 	
 	public List<Car> getCars() {
 		return cars;

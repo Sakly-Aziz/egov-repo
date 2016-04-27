@@ -1,11 +1,61 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" template="/index.xhtml">
 
-<h:head></h:head> 
-<body> 
-<h1>Hi citizen</h1>
-</body> 
-</html>
+	<ui:define name="title">Home page</ui:define>
+
+
+	<ui:define name="content">
+		<h:form>
+		<h2><a>hello M/Mrs : #{authentification.user.firstName}</a></h2>
+
+<h2>
+			<a
+				href="http://localhost:18080/e-gov-web/pages/userManagement/registration.jsf">
+				Register a Baby</a></h2>
+		<h2>	<a
+				href="http://localhost:18080/e-gov-web/pages/acountManagement/addAccount.jsf">
+				Create Bank Account</a></h2>
+
+		<h2>	<a
+				href="http://localhost:18080/e-gov-web/pages/acountManagement/sendMoney.jsf">
+				Send Money</a></h2>
+
+		<h2>	<a
+				href="http://localhost:18080/e-gov-web/pages/userManagement/pdf.jsf">
+				Get Birth Certificate</a> </h2>
+
+			<h2><a
+				href="http://localhost:18080/e-gov-web/pages/userManagement/pdf.jsf">
+				Get Death Certificate</a></h2>
+			<h2><a
+				href="http://localhost:18080/e-gov-web/pages/constructorManagement/listeConstructor.jsf">
+				Buy a Car</a></h2>
+
+			<h2><a
+				href="http://localhost:18080/e-gov-web/pages/caseManagement/listCase.jsf">
+				Get B3</a></h2>
+			<h2><a
+				href="http://localhost:18080/e-gov-web/pages/jobRequestManagement/createJobRequest.jsf">
+				Apply For a Job</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+		</h:form>
+
+	</ui:define>
+</ui:composition>

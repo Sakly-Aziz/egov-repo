@@ -3,6 +3,7 @@ package egov.entities;
 import java.io.Serializable;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,6 +27,8 @@ public class Car implements Serializable {
 	private String color;
 	private String type;
 	private String category;
+	@Column(name = "Selled", columnDefinition = "boolean default false", nullable = true)
+	private boolean selled=false;
 	private int prix;
 	
 
@@ -40,7 +43,7 @@ public class Car implements Serializable {
 	@ManyToOne(cascade=CascadeType.PERSIST)
 	private User user;
 	@ManyToOne(cascade=CascadeType.PERSIST)
-	private User constructor;
+	private Constructor constructor;
 	public int getImmatriculation() {
 		return numImmatriculation;
 	}
@@ -91,11 +94,11 @@ public class Car implements Serializable {
 	
 
 	@ManyToOne
-	public User getConstructor() {
+	public Constructor getConstructor() {
 		return constructor;
 	}
 
-	public void setConstructor(User constructor) {
+	public void setConstructor(Constructor constructor) {
 		this.constructor = constructor;
 	}
 
@@ -119,6 +122,14 @@ public class Car implements Serializable {
 
 	public Car() {
 		super();
+	}
+
+	public boolean isSelled() {
+		return selled;
+	}
+
+	public void setSelled(boolean selled) {
+		this.selled = selled;
 	}
 
 }

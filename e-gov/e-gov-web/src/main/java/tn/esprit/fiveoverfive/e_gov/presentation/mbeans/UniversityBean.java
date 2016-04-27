@@ -45,9 +45,8 @@ public class UniversityBean implements Serializable {
 		universityManagementLocal.remove(universitySelected);
 		universitySelected = new University();
 		visible = false;
-		return "";
+		return "/pages/universityManagement/universityManagement?faces-redirect=true";
 	}
-
 
 
 	public String cancel() {
@@ -107,6 +106,10 @@ public class UniversityBean implements Serializable {
 		this.universityManagementLocal = universityManagementLocal;
 	}
 
+	public String doAddUniviersity() {
+		universityManagementLocal.update(universitySelected);
+		return "";
+	}
 	
 
 }
