@@ -13,7 +13,7 @@
 	<ui:define name="content">
 		<h:form>
 			<h1>User Management</h1>
-			<h:dataTable value="#{userManagementBean1.users1}" var="c" border="2">
+			<h:dataTable value="#{authentification.user}" var="c" border="2">
 
 				<h:column id="c1">
 					<f:facet name="header">
@@ -45,6 +45,12 @@
 						<h:outputText value="Nationality"></h:outputText>
 					</f:facet>
 					<h:outputText value="#{c.nationality}" />
+				</h:column>
+				<h:column id="c175">
+					<f:facet name="header">
+						<h:outputText value="Death Date"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{c.deathDate}" />
 				</h:column>
 				<h:column id="c1235">
 					<f:facet name="header">
