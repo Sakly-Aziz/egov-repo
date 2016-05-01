@@ -41,9 +41,10 @@
 							href="http://localhost:18080/e-gov-web/pages/citizen/citizen.jsf">Service</a></li>
 						<li class="active"><a
 							href="http://localhost:18080/e-gov-web/pages/citizen/citizen.jsf">Home</a></li>
-						<li><a href="http://localhost:18080/e-gov-web/login.jsf">Log out
-								</a></li>
-						<li><a href="http://localhost:18080/e-gov-web/login.jsf">Sign in</a></li>
+						<li><h:form>
+								<h:commandButton action="#{authentification.doLogout()}" value="Logout" />
+								</h:form></li>
+						<li><a href="http://localhost:18080/e-gov-web/public/login.jsf">Sign in</a></li>
 						<li><a href="http://localhost:18080/e-gov-web/contact.jsf">Contact
 								Us</a></li>
 					</ul>

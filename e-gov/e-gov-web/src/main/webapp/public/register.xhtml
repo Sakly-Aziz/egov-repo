@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui"
+	template="/template/publictemplate.xhtml">
+	<ui:define name="title">register page</ui:define>
+	<ui:define name="formTitle">regiter form</ui:define>
+	<ui:define name="content">
+		<h:form>
+			<div>
+				<h:inputText id="first" class="form-control"
+					pt:placeholder="firstName" required="true"
+					value="#{registerBean.customer.firstname}" />
+			</div>
+			<div>
+				<h:inputText id="last" class="form-control"
+					pt:placeholder="lastName" required="true"
+					value="#{registerBean.customer.lastname}" />
+			</div>
+			<div>
+				<h:inputText id="birth" class="form-control"
+					pt:placeholder="birthDate" required="true"
+					value="#{registerBean.customer.birthDate}"
+					converter="javax.faces.DateTime">
+					
+				</h:inputText>
+			</div>
+			<div>
+				<h:inputText id="email" class="form-control" pt:placeholder="E-mail"
+					required="true" value="#{registerBean.customer.email}"
+					validatorMessage="not a valide format">
+					
+				</h:inputText>
+			</div>
+			<div>
+				<h:inputText id="phone" class="form-control"
+					pt:placeholder="phone number" required="true"
+					value="#{registerBean.customer.phoneNumber}"
+					validatorMessage="not a number" />
+			</div>
+			<div>
+				<h:inputSecret id="pass" class="form-control"
+					pt:placeholder="PassWord" required="true"
+					value="#{registerBean.customer.password}" >
+					
+					<f:attribute name="confirme" value="#{conf}">
+					</f:attribute>
+
+				</h:inputSecret>
+			</div>
+			<div>
+				<h:inputSecret id="confirme" class="form-control"
+					pt:placeholder="Confirme PassWord" required="true"
+					binding="#{conf}">
+					<f:validateLength minimum="5" maximum="10"></f:validateLength>
+				</h:inputSecret>
+			</div>
+			<div>
+				<h:inputSecret id="login" class="form-control"
+					pt:placeholder="Login" required="true"
+					value="#{registerBean.customer.login}" />
+			</div>
+
+			<div>
+				<h:commandButton class="btn btn-primary" value="Register"
+					action="#{registerBean.doRegiister()}" />
+				
+
+
+
+			</div>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>

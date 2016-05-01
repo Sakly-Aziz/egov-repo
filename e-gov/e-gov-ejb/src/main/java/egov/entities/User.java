@@ -47,6 +47,33 @@ public class User implements Serializable {
 	private String gender;
 	private String nationality;
 	private int numCin;
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private List<Car> cars;
+	
+
+	public List<Car> getCars() {
+		return cars;
+	}
+
+	public void setCars(List<Car> cars) {
+		this.cars = cars;
+	}
+
+	public List<JobRequest> getJobRequests() {
+		return jobRequests;
+	}
+
+	public void setJobRequests(List<JobRequest> jobRequests) {
+		this.jobRequests = jobRequests;
+	}
+
+	public List<Detail> getDetail() {
+		return detail;
+	}
+
+	public void setDetail(List<Detail> detail) {
+		this.detail = detail;
+	}
 
 	public String getNationality() {
 		return nationality;

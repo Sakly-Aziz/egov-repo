@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<body> 
+<h:form>
+    <p:growl id="messages" showDetail="true" />
+ 
+    <h:panelGrid columns="2" cellpadding="5">
+        <h:outputText value="ben jemaa:" />
+        <p:rating value="#{ratingView.rating1}" />
+ 
+        <h:outputText value="kammoun voiture" />
+        <p:rating value="#{ratingView.rating2}" stars="5" cancel="false" onRate="alert('You rated ' + value)" />
+ 
+        <h:outputText value="tunisie automobile:" />
+        <p:rating value="#{ratingView.rating3}" stars="5" cancel="false" onRate="alert('You rated ' + value)" />
+            
+      
+ 
+        <h:outputText value="ghalia automobile:" />
+        <p:rating value="#{ratingView.rating4}" stars="5" cancel="false" onRate="alert('You rated ' + value)" />
+ 
+        
+    </h:panelGrid>
+ 
+    <p:commandButton value="Submit" update="display" oncomplete="PF('dlg').show()" style="margin:5px" />
+ 
+    <p:dialog header="Values" widgetVar="dlg" showEffect="fade" hideEffect="fade">
+        <h:panelGrid id="display" columns="2" cellpadding="5">
+            <h:outputText value="Rating 1:" />
+            <h:outputText value="#{ratingView.rating1}" />
+ 
+            <h:outputText value="Rating 2:" />
+            <h:outputText value="#{ratingView.rating2}" />
+ 
+            <h:outputText value="Rating 3:" />
+            <h:outputText value="#{ratingView.rating3}" />
+        </h:panelGrid>
+    </p:dialog>
+</h:form>
+</body> 
+</html>
