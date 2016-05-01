@@ -11,7 +11,13 @@
 
 
 	<ui:define name="content">
+	
+
+	
 		<h:form>
+		
+
+
 		<h2><a>hello M/Mrs : #{authentification.user.firstName}</a></h2>
 
 <h2>
@@ -25,6 +31,11 @@
 		<h2>	<a
 				href="http://localhost:18080/e-gov-web/pages/acountManagement/sendMoney.jsf">
 				Send Money</a></h2>
+					<h2>	<a
+				href="http://localhost:18080/e-gov-web/pages/userManagement/addRequest.jsf">
+				Write a request</a> </h2>
+				
+
 
 		<h2>	<a
 				href="http://localhost:18080/e-gov-web/pages/userManagement/pdf.jsf">
@@ -56,6 +67,9 @@
 
 
 		</h:form>
+		<p:media value="/resources/lol.mp3" width="5" height="5" player="quicktime">
+    <f:param name="autoPlay" value="false" />
+</p:media>
 
 	</ui:define>
 </ui:composition>

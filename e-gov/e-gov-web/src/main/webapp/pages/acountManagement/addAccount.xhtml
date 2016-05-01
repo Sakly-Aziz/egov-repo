@@ -22,7 +22,10 @@
 
 			<h:panelGrid columns="2">
 				<h:outputText value="Num Account *" />
-				<h:inputText value="#{accountManagementBean.account.num}" required="true"   requiredMessage="You should write your number account"/>
+				<h:inputText value="#{accountManagementBean.account.num}" required="true"   requiredMessage="Account num should be composed of 8 number">
+				
+				<f:validateLongRange minimum="8"/> 
+				</h:inputText>
 				<h:outputText value="ammount" />
 				<h:inputText value="#{accountManagementBean.account.ammount}"  required="true"   requiredMessage="You should put your ammount"/>
 

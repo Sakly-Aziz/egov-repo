@@ -35,6 +35,9 @@ public class User implements Serializable {
 	private String job;
 	private Date deathDate;
 	private Blob photo;
+	private String requestSubject;
+	
+	private String request;
 	private Blob fingerPrint;
 	private String birthPlace;
 	private String login;
@@ -282,6 +285,22 @@ public class User implements Serializable {
 
 	public void setNumCin(int numCin) {
 		this.numCin = numCin;
+	}
+
+	public String getRequest() {
+		return request;
+	}
+
+	public void setRequest(String request) {
+		this.request = request;
+	}
+
+	public String getRequestSubject() {
+		return requestSubject;
+	}
+
+	public void setRequestSubject(String requestSubject) {
+		this.requestSubject = requestSubject;
 	}
 
 }
