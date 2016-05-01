@@ -20,9 +20,13 @@ public class JobRequest implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private Date DateOfRequest;
+	
+	
 	private static final long serialVersionUID = 1L;
 	@ManyToOne
 	private User user;
+	
+
 	@ManyToOne
 	private CompanyOffer companyOffer;
 

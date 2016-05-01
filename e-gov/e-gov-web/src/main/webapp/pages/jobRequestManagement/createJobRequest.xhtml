@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head></h:head>
 <body>
@@ -17,6 +18,18 @@
 				<f:facet name="header">Company</f:facet>
 				<h:outputText value="#{o.company.name}" />
 			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Localisation</f:facet>
+				<p:commandButton id="btn" type="button" icon="ui-icon-pin-s"
+					value="Show Map" onclick="PF('dlg').show();" />
+
+				<p:dialog id="gmapDialog" widgetVar="dlg" width="625" height="400"
+					modal="true">
+    <p:gmap id="gmap" center="#{o.lat},#{o.longitude}" zoom="15"
+						type="HYBRID" style="width:100%;height:400px" />
+				</p:dialog>
+			</h:column>
 			<h:column>
 				<f:facet name="header">#</f:facet>
 
@@ -26,5 +39,6 @@
 		</h:dataTable>
 
 	</h:form>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 </body>
 </html>

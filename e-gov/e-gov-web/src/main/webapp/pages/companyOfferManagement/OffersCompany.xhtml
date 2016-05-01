@@ -32,6 +32,10 @@
 		</h:dataTable>
 		<h:outputText value="Workstation wanted" />
 		<h:inputText value="#{companyOfferBean.companyOffer.description}" />
+		<h:outputText value="Localisation's latitude" />
+		<h:inputText value="#{companyOfferBean.companyOffer.lat}" />
+		<h:outputText value="Localisation's longitude" />
+		<h:inputText value="#{companyOfferBean.companyOffer.longitude}" />
 		<h:outputText value="company ID" />
 		<h:inputText value="#{companyOfferBean.companyId}" />
 		<h:commandButton action="#{companyOfferBean.doCreateCompanyOffer()}"
