@@ -63,6 +63,11 @@
 
 		</h:panelGrid>
 
+ <div class="form-group">
+    <p:messages showDetail="true"/>
+    <p:captcha label="Captcha" />
+    <p:commandButton value="Check" actionListener="#{userManagementBean1.submit()}" ajax="false" icon="ui-icon-check"/>
+</div>
 	</h:form>
 	</ui:define>
 </ui:composition>
