@@ -13,4 +13,12 @@ public interface CompanyOfferManagementLocal {
 	Boolean createCompanyOffer(Integer companyId, CompanyOffer companyOffer);
 
 	Boolean createJobRequest(Integer userId, Integer offerId);
+
+	Boolean removeCompanyOfferById(Integer offerId);
+
+	CompanyOffer findCompanyOfferById(Integer offerId);
+
+	Boolean remove(CompanyOffer u);
+
+	Boolean update(CompanyOffer u);
 }

@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head></h:head>
+<body>
+	<h1>Your Job request has been sent..Wait for our response</h1>
+	<h:form>
+		<h:dataTable border="2" value="#{jobRequestBean.all()}" var="o">
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="First Name" />
+				</f:facet>
+				<h:outputText value="#{o.user.firstName}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Last Name" />
+				</f:facet>
+				<h:outputText value="#{o.user.lastName}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Workstation wanted" />
+				</f:facet>
+				<h:outputText value="#{o.companyOffer.description}" />
+			</h:column>
+
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Request's Day" />
+				</f:facet>
+				<h:outputText value="#{o.dateOfRequest}" />
+			</h:column>
+
+		</h:dataTable>
+	</h:form>
+</body>
+</html>
