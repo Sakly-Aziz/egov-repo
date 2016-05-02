@@ -13,6 +13,11 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Hopital implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int numHopital;
@@ -43,12 +48,12 @@ public class Hopital implements Serializable {
 		super();
 	}
 
-	public Hopital(int numHopital, String name, String adresse, List<Intervention> interventions) {
+	public Hopital(String name, String adresse) {
 		super();
-		this.numHopital = numHopital;
+	
 		this.name = name;
 		this.adresse = adresse;
-		this.interventions = interventions;
+	
 	}
 
 	public String getName() {

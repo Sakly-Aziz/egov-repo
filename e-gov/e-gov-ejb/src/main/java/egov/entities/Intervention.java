@@ -19,6 +19,7 @@ public class Intervention implements Serializable {
 
 	@OneToMany(mappedBy = "intervention", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Detail> detail;
+	
 	@ManyToOne(cascade=CascadeType.PERSIST)
 	private Hopital hopital;
 

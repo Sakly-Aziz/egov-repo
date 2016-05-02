@@ -26,13 +26,11 @@ public class HopitalManagementBean {
 		private String name;
 		private String adresse;
 		
-		private boolean display_add = false;
-		
-		private boolean displayUpdate = false;
+	
 
 		
 		private Hopital hopital=new Hopital() ;
-		private Hopital hopitalselected;
+		private Hopital hopitalselected= new Hopital();
 
 		
 	
@@ -117,21 +115,7 @@ public void setNumHopital(int numHopital) {
 	this.numHopital = numHopital;
 }
 
-public boolean isDisplay_add() {
-	return display_add;
-}
 
-public void setDisplay_add(boolean display_add) {
-	this.display_add = display_add;
-}
-
-public boolean isDisplayUpdate() {
-	return displayUpdate;
-}
-
-public void setDisplayUpdate(boolean displayUpdate) {
-	this.displayUpdate = displayUpdate;
-}
 	}
 
 
