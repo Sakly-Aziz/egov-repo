@@ -25,6 +25,7 @@ public class Authentification {
 	private Citizen citizen;
 	private Admin admin;
 	private User user= new User();
+	private String user_type ="";
 
 	// injection
 	@EJB
@@ -42,10 +43,12 @@ public class Authentification {
 		User userLoggedIn = service.authentificate(login , password );
 		if (userLoggedIn != null) {
 			if (userLoggedIn instanceof Citizen) {
+				user_type="Citizen";
 				navigateTo = "/pages/citizen/citizen?faces-redirect=true";
 				user = userLoggedIn;
 				
 			} else if (userLoggedIn instanceof Admin) {
+				user_type="admin";
 				navigateTo = "/pages/admin/home?faces-redirect=true";
 				
 			} 
@@ -85,6 +88,14 @@ public class Authentification {
 	public void setUser(User user) {
 		this.user = user;
 	}
+	
+	public String getUser_type() {
+		return user_type;
+	}
+	public void setUser_type(String user_type) {
+		this.user_type = user_type;
+	}
+	
 	public String getLogin() {
 		return login;
 	}

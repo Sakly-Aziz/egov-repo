@@ -12,7 +12,7 @@
 
 	<ui:define name="content">
 <h:form enctype="multipart/form-data">
-			<p:growl id="messages" showDetail="true" />
+			<p:growl id="messages" showDetail="false" />
 </h:form>
 		<h:form>
 			<p:growl id="growl" life="2000" />
@@ -33,8 +33,7 @@
 			<h:outputText value="Birth Place" />
 			<h:inputText value="#{userManagementBean1.userSelected.birthPlace}" required="true" requiredMessage="You should write the Birth Place" />
 			<h:outputText value="Nationality" />
-			<h:inputText value="#{userManagementBean1.userSelected.nationality}" required="true" requiredMessage="You should write Nationality"  >
-			<f:validateRegex pattern="[0..9]/{8}"></f:validateRegex>/></h:inputText>
+			<h:inputText value="#{userManagementBean1.userSelected.nationality}" required="true" requiredMessage="You should write Nationality"  />
 					<h:outputText value="Cin number" />
 			<h:inputText value="#{userManagementBean1.userSelected.numCin}"    />
 			<h:outputText value="Mother name" />
@@ -55,14 +54,22 @@
 			<h:outputText value="#{userManagementBean1.userSelected.gender}" />
 	
 
-			<h:commandButton action="#{userManagementBean1.doUpdateUser()}"
+			
+
+
+
+	
+
+ <div class="form-group">
+    <p:messages showDetail="false"/>
+    <p:captcha label="Captcha" />
+    <p:commandButton value="Check" actionListener="#{userManagementBean1.submit()}" ajax="false" icon="ui-icon-check"/>
+</div>
+
+<h:commandButton action="#{userManagementBean1.doUpdateUser()}"
 				value="Add" />
 
-
-
-
-		</h:panelGrid>
-
+	</h:panelGrid>
 	</h:form>
 	</ui:define>
 </ui:composition>
