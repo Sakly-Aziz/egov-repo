@@ -12,30 +12,22 @@
 	<ui:define name="content">
 		<h:form>
 			<div>
-				<h:inputText pt:placeholder="login"
-					value="#{authentification.login}" />
+				<h:inputText pt:placeholder="login" value="#{authentification.login}" />
 			</div>
 			<div>
-				<h:inputSecret pt:placeholder="password"
-					value="#{authentification.password}" />
+				<h:inputSecret pt:placeholder="password" value="#{authentification.password}" />
 			</div>
 			<div>
-				<h:commandButton action="#{authentification.doLogin()}"
-					value="login " styleClass="btn btn-primary" />
-
+				<h:commandButton action="#{authentification.doLogin()}" value="login "
+					styleClass="btn btn-primary" />
+			
 			</div>
 		</h:form>
-		<div style="color: red;">
-			<h:messages showDetail="true" />
-		</div>
-		<a href="http://localhost:18080/e-gov-web/contact.jsf">Forgot
-			Password ?</a>
-		
-			
-            <p:button value="Facebook Connect" href="#{loginpagecode.facebookUrlAuth}" />
-            <br/><br/>
-            <h:outputText value="#{loginpagecode.userFromSession}"></h:outputText>
-        
+		<div style="color: red;"> <h:messages showDetail="true" /> </div>
+		<a href="http://localhost:18080/e-gov-web/contact.jsf">Forgot Password ?</a>
+	
+
+	
 	</ui:define>
 
 

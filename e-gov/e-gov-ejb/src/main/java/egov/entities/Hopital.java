@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class Hopital implements Serializable {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private int numHopital;
 
 	private String name;

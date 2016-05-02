@@ -24,20 +24,17 @@
 		<h:form>
 			<h:panelGrid columns="2">
 				<h:outputText value="numHopital" />
-				<h:inputText value="#{hopitalManagementBean.numHopital}"
+				<h:inputText value="#{hopitalManagementBean.hopital.numHopital}"
 					required="true"
 					requiredMessage="You should write the Number of Intervention" />
 				<h:outputText value="name" />
-				<h:inputText value="#{hopitalManagementBean.name}"
+				<h:inputText value="#{hopitalManagementBean.hopital.name}"
 					required="true" requiredMessage="You should write the name" />
 				<h:outputText value="adresse" />
-				<h:inputText value="#{hopitalManagementBean.adresse}"
+				<h:inputText value="#{hopitalManagementBean.hopital.adresse}"
 					required="true" requiredMessage="You should write the description" />
 
-				<h:commandButton action="#{hopitalManagementBean.doAddHopital()}"
-					value="Send">
-				
-				</h:commandButton>
+			<h:commandButton action="#{hopitalManagementBean.doUpdateHopital()}" value="update" />
 			</h:panelGrid>
 		</h:form>
 	</ui:define>
