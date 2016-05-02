@@ -43,7 +43,7 @@ public class Authentification {
 		User userLoggedIn = service.authentificate(login , password );
 		if (userLoggedIn != null) {
 			if (userLoggedIn instanceof Citizen) {
-				user_type="user";
+				user_type="Citizen";
 				navigateTo = "/pages/citizen/citizen?faces-redirect=true";
 				user = userLoggedIn;
 				

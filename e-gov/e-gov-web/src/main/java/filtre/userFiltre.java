@@ -1,8 +1,6 @@
 package filtre;
-
 import java.io.IOException;
 
-import javax.ejb.EJB;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -13,12 +11,11 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 import tn.esprit.fiveoverfive.e_gov.presentation.mbeans.Authentification;
 
 
 
-@WebFilter("/user/*")
+@WebFilter("/pages/citizen/*")
 public class userFiltre implements Filter {
 
 	@Override
@@ -33,7 +30,7 @@ public class userFiltre implements Filter {
          HttpServletRequest resquest=(HttpServletRequest) rec;
          HttpServletResponse response=(HttpServletResponse) resp;
          Authentification auth=(Authentification) resquest.getSession().getAttribute("authentification");
-         if(auth.getUser_type().equals("user") &&  auth!=null){
+         if(auth.getUser_type().equals("Citizen") &&  auth!=null){
         	 chain.doFilter(resquest, response);
          }
          else response.sendRedirect(resquest.getContextPath()+"/public/login.jsf");
@@ -42,11 +39,7 @@ public class userFiltre implements Filter {
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {
 		// TODO Auto-generated method stub
-	
+		
 	}
 
-
-
-	}
-
-
+}

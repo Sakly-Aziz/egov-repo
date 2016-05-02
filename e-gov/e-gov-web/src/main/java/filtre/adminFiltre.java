@@ -1,5 +1,4 @@
 package filtre;
-
 import java.io.IOException;
 
 import javax.servlet.Filter;
@@ -12,12 +11,11 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 import tn.esprit.fiveoverfive.e_gov.presentation.mbeans.Authentification;
 
 
 
-@WebFilter("/admin/*")
+@WebFilter("/pages/admin/*")
 public class adminFiltre implements Filter {
 
 	@Override
@@ -41,11 +39,7 @@ public class adminFiltre implements Filter {
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {
 		// TODO Auto-generated method stub
-	
+		
 	}
 
-
-
-	}
-
-
+}
