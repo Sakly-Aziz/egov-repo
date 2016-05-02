@@ -8,61 +8,69 @@
 	xmlns:p="http://primefaces.org/ui" template="/index.xhtml">
 
 	<ui:define name="title">login page</ui:define>
-
-
-	<ui:define name="content">
-	<h:form>
-	<h1>Account information</h1>
-		<h:panelGrid columns="2">
-			<h:outputText value="Num Account *" />
-			<h:inputText value="#{accountManagementBean.account.num}" required="true"  />
-			<h:outputText value="ammount" />
-			<h:inputText value="#{accountManagementBean.account.ammount}" />
-			
-			
-			
-				<h:outputLabel for="name" value="Bank Name  *" />
-			<h:selectOneMenu id="name" value="#{accountManagementBean.account.name}"
-				required="true" label="Bank Name">
-
-			
-				<f:selectItem itemLabel="UIB" itemValue="uib" />
-				<f:selectItem itemLabel="Amen Bank" itemValue="amen bank" />
-				<f:selectItem itemLabel="BIAT" itemValue="Biat" />
-				<f:selectItem itemLabel="BNA" itemValue="bna" />
-				<f:selectItem itemLabel="BTA" itemValue="bta" />
-				
-				
-</h:selectOneMenu>
-			
-			<h:outputText value="#{accountManagementBean.accountSelected.name}" />
-			
-			<h:commandButton action="#{accountManagementBean.doAddAccount()}" value="add" />
-		</h:panelGrid>
-	</h:form>
-	
-	<h:form enctype="multipart/form-data">
-    <p:growl id="messages" showDetail="true" />
- 
-    <p:fileUpload value="#{fileUploadView.file}" mode="simple" skinSimple="true" var="c"/>
- 
- 				<h:column id="c459">
-				<f:facet name="header">
-					<h:outputText value="#"></h:outputText>
-				</f:facet>
-				<h:commandButton
-					action="#{fileUploadView.doPdf(c)}" value="Print extract" />
-			</h:column>
-			
- 
-</h:form>	
-<h:form>
-    <p:growl id="growl" life="2000" />
-     
-    <p:commandButton value="Ajax Submit" id="ajax" update="growl" actionListener="#{accountManagementBean.buttonAction}" styleClass="ui-priority-primary" />
- 
-
-    <p:commandButton value="Disabled" id="disabled" disabled="true" />
+<ui:define name="content">
+<h:form enctype="multipart/form-data">
+			<p:growl id="messages" showDetail="true" />
 </h:form>
+		<h:form>
+			<p:growl id="growl" life="2000" />
+</h:form>
+
+		<h:form>
+			<h1>Baby Registration</h1>
+			<h:panelGrid columns="2">
+
+				<h:outputText value="First Name" />
+				<h:inputText value="#{userManagementBean1.userSelected.firstName}"
+					required="true" requiredMessage="You should write the First name" />
+				<h:outputText value="Last Name" />
+				<h:inputText value="#{userManagementBean1.userSelected.lastName}"
+					required="true" requiredMessage="You should write the Last name" />
+				<h:outputText value="Birth date" />
+				<h:inputText value="#{userManagementBean1.userSelected.birthDate}"
+					required="true" requiredMessage="You should write the Birth Date">
+					<f:convertDateTime pattern="dd-MM-yyyy" />
+				</h:inputText>
+				<h:outputText value="Birth Place" />
+				<h:inputText value="#{userManagementBean1.userSelected.birthPlace}"
+					required="true" requiredMessage="You should write the Birth Place" />
+				<h:outputText value="Nationality" />
+				<h:inputText value="#{userManagementBean1.userSelected.nationality}"
+					required="true" requiredMessage="You should write Nationality" />
+				<h:outputText value="Cin number" />
+				<h:inputText value="#{userManagementBean1.userSelected.numCin}" />
+				<h:outputText value="Mother name" />
+				<h:inputText value="#{userManagementBean1.userSelected.motherName}"
+					required="true"
+					requiredMessage="You should write the mother's name" />
+				<h:outputText value="Father Name" />
+				<h:inputText value="#{userManagementBean1.userSelected.fatherName}"
+					required="true"
+					requiredMessage="You should write the mother's name" />
+
+
+				<h:outputLabel for="gender" value="Gender: *" required="true" />
+				<h:selectOneMenu id="gender"
+					value="#{userManagementBean1.userSelected.gender}" required="true"
+					label="Gender">
+
+
+					<f:selectItem itemLabel="Male" itemValue="male" />
+					<f:selectItem itemLabel="Female" itemValue="female" />
+				</h:selectOneMenu>
+
+				<h:outputText value="#{userManagementBean1.userSelected.gender}" />
+
+
+				<h:commandButton action="#{userManagementBean1.doUpdateUser()}"
+					value="Add" />
+
+
+
+
+			</h:panelGrid>
+
+		</h:form>
+
 	</ui:define>
 </ui:composition>

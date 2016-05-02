@@ -35,6 +35,9 @@ public class User implements Serializable {
 	private String job;
 	private Date deathDate;
 	private Blob photo;
+	private String requestSubject;
+	
+	private String request;
 	private Blob fingerPrint;
 	private String birthPlace;
 	private String login;
@@ -59,15 +62,14 @@ public class User implements Serializable {
 	@OneToMany(mappedBy = "user")
 	private List<JobRequest> jobRequests;
 
-	@OneToMany(mappedBy = "user1")
+	@OneToMany(mappedBy = "user")
 	private List<Establishment> establishment;
 	@OneToMany(mappedBy = "user")
 	private List<Work> work;
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Account> accounts;
 
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private List<Car> cars;
+	
 	@OneToMany(mappedBy = "user")
 	private List<Bills_fines> bills;
 	@OneToMany(mappedBy = "user")
@@ -190,13 +192,7 @@ public class User implements Serializable {
 		this.accounts = accounts;
 	}
 
-	public List<Car> getCars() {
-		return cars;
-	}
 
-	public void setCars(List<Car> cars) {
-		this.cars = cars;
-	}
 
 	public List<Bills_fines> getBills() {
 		return bills;
@@ -208,7 +204,7 @@ public class User implements Serializable {
 
 	public User(String firstName, String lastName, Date birthDate, String job, Date deathDate, Blob photo,
 			Blob fingerPrint, String birthPlace, String login, String email, String pwd, String status,
-			List<Establishment> establishment, List<Work> work, List<Account> accounts, List<Car> cars,
+			List<Establishment> establishment, List<Work> work, List<Account> accounts,
 			List<Bills_fines> bills, List<Kase> kase) {
 		super();
 		this.firstName = firstName;
@@ -226,7 +222,7 @@ public class User implements Serializable {
 		this.establishment = establishment;
 		this.work = work;
 		this.accounts = accounts;
-		this.cars = cars;
+		
 		this.bills = bills;
 		this.kase = kase;
 	}
@@ -289,6 +285,22 @@ public class User implements Serializable {
 
 	public void setNumCin(int numCin) {
 		this.numCin = numCin;
+	}
+
+	public String getRequest() {
+		return request;
+	}
+
+	public void setRequest(String request) {
+		this.request = request;
+	}
+
+	public String getRequestSubject() {
+		return requestSubject;
+	}
+
+	public void setRequestSubject(String requestSubject) {
+		this.requestSubject = requestSubject;
 	}
 
 }

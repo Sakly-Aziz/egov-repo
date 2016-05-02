@@ -58,8 +58,7 @@
 				<h:commandButton
 					action="#{accountManagementBean.doPdf(c)}" value="Print extract" />
 			</h:column>
-			
-			
+	
 			
 					<h:column id="c4559">
 				<f:facet name="header">
@@ -75,7 +74,7 @@
 		<h:panelGrid columns="2">
 
 			<h:outputText value="Account number" />
-			<h:inputText value="#{accountManagementBean.accountSelected.num}" />
+			<h:inputText value="#{accountManagementBean.accountSelected.num}"  />
 			<h:outputText value="ammount" />
 			<h:inputText value="#{accountManagementBean.accountSelected.ammount}" />
 				<h:outputLabel for="name" value="Bank Name  *" />
@@ -96,20 +95,11 @@
 
 			<h:commandButton action="#{accountManagementBean.doUpdateAccount()}"
 				value="update" />
+					
+
 		</h:panelGrid>
 		
-		<h:panelGrid columns="2">
-		<h:outputText value="num account1" />
-			<h:inputText value="#{accountManagementBean.account.num}" var="account1" />
-			<h:outputText value="ammount to send " />
-			<h:inputText value="#{accountManagementBean.money}" var="ammount" />
-		<h:panelGrid columns="2"> 
-		</h:panelGrid>
-	<h:outputText value="num account2" />
-			<h:inputText value="#{accountManagementBean.account2.num}" var="account2" />
-	
-			<h:commandButton action="#{accountManagementBean.doSendMoney()}" value="Send" />
-		</h:panelGrid>
+
 
 
 

@@ -1,13 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" template="/index.xhtml">
 
-<h:head></h:head>
-<body>
+	<ui:define name="title">login page</ui:define>
+
+
+	<ui:define name="content">
+
 	<h1>list of universities</h1>
-	<h:form>
+
+		<h:form id="form5" enctype="multipart/form-data" >
 		<h:dataTable value="#{universityBean.universities}" var="u" border="2">
 			<h:column>
 				<f:facet name="header">
@@ -34,8 +41,8 @@
 				<h:commandButton action="#{universityBean.select(u)}" value="select" />
 			</h:column>
 		</h:dataTable>
-		<h:commandButton action="#{universityBean.show()}" value="add" />
-		<h:panelGrid columns="2" rendered="#{universityBean.visible}">
+	
+	
 			<h:outputText value="name" />
 			<h:inputText
 				value="#{universityBean.universitySelected.nameUniversity}" />
@@ -43,15 +50,22 @@
 			<h:inputText value="#{universityBean.universitySelected.adress}" />
 			<h:outputText value="phone" />
 			<h:inputText value="#{universityBean.universitySelected.phone}" />
+
+        
+        
+  <br/>
+
+
 			<h:panelGrid columns="3">
 				<h:commandButton action="#{universityBean.doDelete()}"
 					value="delete" />
-				<h:commandButton action="#{universityBean.doSaveOrUpdate()}"
+				<h:commandButton action="#{universityBean.doAddUniviersity()}"
 					value="save or update" />
 				<h:commandButton action="#{universityBean.cancel()}" value="cancel" />
-			</h:panelGrid>
-		</h:panelGrid>
+			
+		
+	</h:panelGrid>
+		</h:form>
 
-	</h:form>
-</body>
-</html>
+</ui:define>
+</ui:composition>

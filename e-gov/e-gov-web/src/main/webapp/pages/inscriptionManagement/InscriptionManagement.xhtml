@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" template="/index.xhtml">
+
+	<ui:define name="title">login page</ui:define>
+
+
+	<ui:define name="content">
+
+<h1>list of Inscriptions</h1>
+	<h:form>
+		<h:dataTable value="#{inscriptionBean.ests}" var="u" border="2">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="User" />
+				</f:facet>
+				<h:outputText value="#{u.user.firstName}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="University" />
+				</f:facet>
+				<h:outputText value="#{u.university.nameUniversity}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Fees" />
+				</f:facet>
+				<h:outputText value="#{u.fees}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="level" />
+				</f:facet>
+				<h:outputText value="#{u.level}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="#" />
+				</f:facet>
+				<h:commandButton action="#{inscriptionBean.select(u)}" value="select" />
+			</h:column>
+		</h:dataTable>
+		<h:commandButton action="#{inscriptionBean.show()}" value="add" />
+		<h:panelGrid columns="2" rendered="#{inscriptionBean.visible}">
+			<h:outputText value="User" />
+			<h:inputText
+				value="#{inscriptionBean.user.idUser}" />
+			
+			<h:outputText value="University" />
+			<h:inputText value="#{inscriptionBean.university.idUniversity}" />
+			<h:outputText value="Fees" />
+			<h:inputText value="#{inscriptionBean.establishmentSelected.fees}" />
+			<h:outputText value="level" />
+			<h:inputText value="#{inscriptionBean.establishmentSelected.level}" />
+			<h:panelGrid columns="3">
+				<h:commandButton action="#{inscriptionBean.doDelete()}"
+					value="delete" />
+				<h:commandButton action="#{inscriptionBean.doSaveOrUpdate()}"
+					value="save or update" />
+				<h:commandButton action="#{inscriptionBean.cancel()}" value="cancel" />
+			</h:panelGrid>
+		</h:panelGrid>
+
+	</h:form>
+
+</ui:define>
+</ui:composition>

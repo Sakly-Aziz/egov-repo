@@ -2,7 +2,9 @@ package egov.services.interfaces;
 
 import java.util.List;
 
-import egov.entities.Establishment;;
+import egov.entities.Establishment;
+import egov.entities.University;
+import egov.entities.User;;
 
 public interface InscriptionManagementRemote {
 
@@ -21,4 +23,7 @@ public interface InscriptionManagementRemote {
 	Establishment findInscriptionById(int idEstablishment);
 
 	Boolean removeInscriptionById(int idEstablishment);
+	 Boolean createInscription(Establishment est);
+	 User findUserId(int idd);
+	 University findUniversityId(int idd);
 }

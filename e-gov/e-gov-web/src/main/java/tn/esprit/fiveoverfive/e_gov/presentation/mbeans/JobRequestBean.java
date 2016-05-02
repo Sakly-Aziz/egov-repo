@@ -59,7 +59,7 @@ public class JobRequestBean {
 
 	public List<JobRequest> all() {
 
-		return jobRequestManagementLocal.findAllJobRequestsById(3);
+		return jobRequestManagementLocal.findAllJobRequestsById(1);
 
 	}
 

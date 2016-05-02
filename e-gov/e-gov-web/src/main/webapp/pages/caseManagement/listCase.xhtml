@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui"
+	template="/index.xhtml">
+
+<ui:define name="title">List of case</ui:define>
+
+
+<ui:define name="content">
+	<h:form>
+		<h:dataTable value="#{caseBean.cases}" var="c" border="2" >
+
+			<h:column id="c1">
+				<f:facet name="header">
+					<h:outputText value="name of case"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{c.nameCase}" />
+			</h:column>
+			
+			<h:column id="c2">
+				<f:facet name="header">
+					<h:outputText value="Judgment of Case"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{c.judgment}" />
+			</h:column>
+			
+			<h:column id="c3">
+				<f:facet name="header">
+					<h:outputText value="Date of Case"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{c.dateCase}" />
+			</h:column>
+			
+			
+			
+			<h:column id="c5">
+				<f:facet name="header">
+					<h:outputText value="Select"></h:outputText>
+				</f:facet>
+				<h:commandButton 
+					value="select" >
+					<f:setPropertyActionListener value="#{c}" target="#{caseBean.caseSelected}"></f:setPropertyActionListener>
+					<f:setPropertyActionListener value="true" target="#{caseBean.renderForm}"></f:setPropertyActionListener>
+					</h:commandButton>
+			</h:column>
+			
+		</h:dataTable>
+		
+		<h:panelGrid columns="2" rendered="#{caseBean.renderForm}">
+            <h:outputText value=" Name of Case" />
+			<h:inputText value="#{caseBean.caseSelected.nameCase}" />
+			<h:outputText value="Judgment of Case" />
+			<h:inputText value="#{caseBean.caseSelected.judgment}" />
+			<h:outputText value="date of Case" />
+			<h:inputText value="#{caseBean.caseSelected.dateCase}">
+			<f:convertDateTime pattern="dd-MM-yyyy" />
+			</h:inputText>
+			
+
+			    <h:commandButton action="#{caseBean.doUpdateCase()}"
+				value="update" />
+				<h:commandButton action="#{caseBean.doDeleteCase(caseBean.caseSelected)}"
+				value="Delete"/>
+				<h:commandButton action="#{caseBean.doPdf(c)}" 
+				value="print" />
+				
+		</h:panelGrid>
+		
+	</h:form>
+</ui:define>
+	</ui:composition>
