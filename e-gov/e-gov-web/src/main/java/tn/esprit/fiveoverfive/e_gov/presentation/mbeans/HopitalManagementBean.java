@@ -6,30 +6,44 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
+
 
 import egov.entities.Hopital;
 import egov.services.interfaces.IHopitalManagement;
 
+
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class HopitalManagementBean {
 	
 		@EJB
 		private IHopitalManagement iHopitalManagement;
 
 		private List<Hopital> hopitals = new ArrayList<>();
-		private Hopital hopital ;
-		private Hopital hopitalselected = new Hopital();
-		private Hopital a;
 		
+		private int numHopital;
+		private String name;
+		private String adresse;
+		
+		private boolean display_add = false;
+		
+		private boolean displayUpdate = false;
+
+		
+		private Hopital hopital=new Hopital() ;
+		private Hopital hopitalselected;
+
+		
+	
 
 		public String doAddHopital() {
+			
 			iHopitalManagement.addHopital(hopital);
 			return "/pages/hopitalManagement/listHopital?faces-redirect=true";
 		}
 
-		public String doDeleteCar(Hopital hopitalselected) {
+		public String doDeleteHopital(Hopital hopitalselected) {
 			iHopitalManagement.removeHopital(hopitalselected);
 			return "/pages/hopitalManagement/listHopital?faces-redirect=true";
 		}
@@ -68,13 +82,7 @@ public class HopitalManagementBean {
 			this.hopitalselected = hopitalSelected;
 		}
 
-		public Hopital getA() {
-			return a;
-		}
 
-		public void setA(Hopital a) {
-			this.a = a;
-		}
 		
 		
 @PostConstruct
@@ -83,6 +91,46 @@ public void init() {
 
 			
 
+}
+
+public String getName() {
+	return name;
+}
+
+public void setName(String name) {
+	this.name = name;
+}
+
+public String getAdresse() {
+	return adresse;
+}
+
+public void setAdresse(String adresse) {
+	this.adresse = adresse;
+}
+
+public int getNumHopital() {
+	return numHopital;
+}
+
+public void setNumHopital(int numHopital) {
+	this.numHopital = numHopital;
+}
+
+public boolean isDisplay_add() {
+	return display_add;
+}
+
+public void setDisplay_add(boolean display_add) {
+	this.display_add = display_add;
+}
+
+public boolean isDisplayUpdate() {
+	return displayUpdate;
+}
+
+public void setDisplayUpdate(boolean displayUpdate) {
+	this.displayUpdate = displayUpdate;
 }
 	}
 

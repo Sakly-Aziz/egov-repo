@@ -1,23 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui"
+	template="/index.xhtml">
+	
+	<ui:define name="title">Hopiatl</ui:define>
 
-<h:head></h:head>
-<body>
+
+<ui:define name="content">
+
+<h2>List of Hopital</h2>
+
 	<h:form>
-
 		<h:dataTable value="#{hopitalManagementBean.hopitals}" var="c" border="2">
 			<h:column id="c1">
 				<f:facet name="header">
-					<h:outputText value="adresse"></h:outputText>
-				</f:facet>
-				<h:outputText value="#{c.adresse}" />
-			</h:column>
-				<h:column id="c148">
-				<f:facet name="header">
-					<h:outputText value="num"></h:outputText>
+					<h:outputText value="numHopital"></h:outputText>
 				</f:facet>
 				<h:outputText value="#{c.numHopital}" />
 			</h:column>
@@ -28,33 +30,38 @@
 				<h:outputText value="#{c.name}" />
 			</h:column>
 			
-		
-			<h:column id="c7">
+			<h:column id="c3">
+				<f:facet name="header">
+					<h:outputText value="adresse"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{c.adresse}" />
+			</h:column>
+			<h:column id="c4">
 				<f:facet name="header">
 					<h:outputText value="#"></h:outputText>
 				</f:facet>
-				<h:commandButton action="#{hopitalManagementBean.doDeleteCar(c)}" value="delete" />
+				<h:commandButton action="#{hopitalManagementBean.doDeleteHopital(c)}" value="delete" />
 			</h:column>
-			<h:column id="c8">
+			<h:column id="c5">
 				<f:facet name="header">
 					<h:outputText value="#"></h:outputText>
 				</f:facet>
 				<h:commandButton action="#{hopitalManagementBean.doSelectHopital(c)}" value="select" />
 			</h:column>
-		
 		</h:dataTable>
 		<h:panelGrid columns="2">
+		
+			<h:outputText value="numHopital" />
+			<h:inputText value="#{hopitalManagementBean.hopitalSelected.numHopital}" />
+					<h:outputText value="name" />
+			<h:inputText value="#{hopitalManagementBean.hopitalSelected.name}" />
 			<h:outputText value="adresse" />
 			<h:inputText value="#{hopitalManagementBean.hopitalSelected.adresse}" />
-				<h:outputText value="num" />
-			<h:inputText value="#{hopitalManagementBean.hopitalSelected.numHopital}" />
-			<h:outputText value="name" />
-			<h:inputText value="#{hopitalManagementBean.hopitalSelected.name}" />
 			
-			
-			<h:commandButton action="#{hopitalManagementBean.doUpdateHopital()}" value="personaliser" />
+		
+			<h:commandButton action="#{hopitalManagementBean.doUpdateHopital()}" value="update" />
 		</h:panelGrid>
 
 	</h:form>
-</body>
-</html>
+	</ui:define>
+	</ui:composition>
