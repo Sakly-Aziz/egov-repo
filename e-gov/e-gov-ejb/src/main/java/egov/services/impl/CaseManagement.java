@@ -69,4 +69,10 @@ public class CaseManagement implements ICaseManagementRemote, ICaseManagementLoc
 		return cases;
 	}
 
+	@Override
+	public Boolean search(Kase c) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

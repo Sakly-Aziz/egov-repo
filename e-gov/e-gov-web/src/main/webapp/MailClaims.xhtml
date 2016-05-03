@@ -45,10 +45,9 @@
 						<li><h:form>
 								<h:commandButton action="#{authentification.doLogout()}" value="Logout" />
 								</h:form></li>
-						<li><a href="http://localhost:18080/e-gov-web/public/login.jsf">Sign in</a></li>
-						<li class="active"><a
-							href="http://localhost:18080/e-gov-web/contact.jsf">Contact
-								Us</a></li>
+						<li><a href="http://localhost:18080/e-gov-web/public/MailClaims.jsf">Sign in</a></li>
+						
+								
 					</ul>
 					<div class="clr"></div>
 				</div>
@@ -87,9 +86,9 @@
 									name="email" class="text"></h:inputText>
 
 
-								<h:outputText value="Subject" for="Subject"></h:outputText>
+								<h:outputText value="Subject" for="Subject">Claims</h:outputText>
 								<h:inputText value="#{mailBean.subject}" id="website"
-									name="website" class="text"></h:inputText>
+									name="website" class="text" placeholder="Claims"></h:inputText>
 
 								<h:outputText value="Your Message" for="message"></h:outputText>
 								<h:inputTextarea value="#{mailBean.msg}" id="message"
@@ -99,10 +98,6 @@
 								<div class="clr"></div>
 
 							</h:panelGrid>
-							
-							
-							
-							
 						</h:form>
 					</div>
 				</div>
@@ -118,7 +113,7 @@
 							<li><a href="http://localhost:18080/e-gov-web/pages/citizen/citizen.jsf">Home</a></li>
 							<li><a href="http://localhost:18080/e-gov-web/about.jsf">About
 									Us</a></li>
-							<li><a href="http://localhost:18080/e-gov-web/login.jsf">Sign in</a></li>
+							<li><a href="http://localhost:18080/e-gov-web/MailClaims.jsf">Sign in</a></li>
 							<li><a href="http://localhost:18080/e-gov-web/contact.jsf">Contact
 									Us</a></li>
 						</ul>
@@ -212,5 +207,19 @@
 			</div>
 		</div>
 	</div>
+	<p:growl autoUpdate="true" />
+ 
+    <p:signature style="width:400px;height:200px" widgetVar="sig" value="#{signatureView.value}" required="true" label="Signature" guideline="true"/>
+ 
+    <div style="margin:20px 0">
+        <p:commandButton value="Submit" icon="ui-icon-check" update="output"/>
+        <p:commandButton value="Clear" icon="ui-icon-close" type="button" onclick="PF('sig').clear()"/>
+    </div>
+ 
+    <p:outputPanel id="output">
+        <h:outputText rendered="#{not empty signatureView.value}" style="font-size:24px;display:block" value="Your Signature" />
+        <p:signature style="width:400px;height:200px;" value="#{signatureView.value}" readonly="true"
+                     rendered="#{not empty signatureView.value}" backgroundColor="#eaeaea" color="#03a9f4"/>
+    </p:outputPanel>
 </body>
 </html>

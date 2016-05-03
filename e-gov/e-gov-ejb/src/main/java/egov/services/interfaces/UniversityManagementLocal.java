@@ -23,5 +23,8 @@ public interface UniversityManagementLocal {
 	University findUniversityById(int idUniversity);
 
 	Boolean removeUniversityById(int idUniversity);
+	List<String> chercherEsprit();
+	List<String> chercherTime();
+	
 
 }

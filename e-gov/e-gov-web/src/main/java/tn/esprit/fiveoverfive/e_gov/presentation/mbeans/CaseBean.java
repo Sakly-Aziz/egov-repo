@@ -15,6 +15,7 @@ import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
@@ -32,6 +33,7 @@ public class CaseBean {
 	private List<Kase> cases = new ArrayList<>();
 	private Kase kase = new Kase();
 	private Kase caseSelected;
+	private List<Kase>  filteredCases;
 
 	@PostConstruct
 	public void init() {
@@ -64,6 +66,21 @@ public class CaseBean {
 		return "/pages/caseManagement/listCases?faces-redirect=true";
 	}
 
+	public String doFilteredCases() {
+		iCaseManagementLocal.search(caseSelected);
+		return "/pages/caseManagement/listCases?faces-redirect=true";}
+	
+	
+	public List<Kase> getfilteredCases() {
+				return filteredCases;
+			}
+public void setfilteredCases(List<Kase> filteredCases) {
+				this.filteredCases = filteredCases;
+			}
+		
+		
+		
+			
 	public List<Kase> getCases() {
 		return cases;
 	}
@@ -95,8 +112,9 @@ public class CaseBean {
 	public void setRenderForm(boolean renderForm) {
 		this.renderForm = renderForm;
 	}
+	
 
-	public void doPdf(Kase ac) {
+	public void doBulletin(Kase caseSelected) {
 
 		Document document = new Document();
 		document.newPage();
@@ -110,20 +128,28 @@ public class CaseBean {
 
 			Font font = new Font(Font.FontFamily.TIMES_ROMAN, 48, Font.ITALIC | Font.BOLD | Font.BOLD);
 
-			Paragraph p1 = new Paragraph("Bulletin 3 ");
-			Paragraph p2 = new Paragraph("num" + ac.getNameCase());
-			Paragraph p3 = new Paragraph("jud:" + ac.getJudgment());
-
+			Paragraph p0=new Paragraph("générale de la sécurité nationale"); 
+			Paragraph p1 = new Paragraph("Bulletin numero 3 ");
+			Paragraph p2 = new Paragraph("NAME:" + caseSelected.getNameCase());
+			Paragraph p3 = new Paragraph("JUDGMENT:" + caseSelected.getJudgment());
+			Paragraph p4=new Paragraph("DATE:" + caseSelected.getDateCase());
+			
+            p0.setAlignment(Element.ALIGN_LEFT);
 			p1.setAlignment(Element.ALIGN_CENTER);
-			p2.setAlignment(Element.ALIGN_CENTER);
-			p3.setAlignment(Element.ALIGN_CENTER);
+			p2.setAlignment(Element.ALIGN_LEFT);
+			p3.setAlignment(Element.ALIGN_LEFT);
+			p4.setAlignment(Element.ALIGN_LEFT);
 
+			
+			document.add(p0);
+			document.add(Chunk.NEWLINE);
 			document.add(p1);
 			document.add(Chunk.NEWLINE);
 			document.add(p2);
 			document.add(Chunk.NEWLINE);
 			document.add(p3);
-
+			document.add(Chunk.NEWLINE);
+			document.add(p4);
 			document.add(Chunk.NEWLINE);
 
 			document.close();

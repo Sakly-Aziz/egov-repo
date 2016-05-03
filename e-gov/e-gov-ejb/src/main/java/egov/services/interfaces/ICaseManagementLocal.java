@@ -12,6 +12,7 @@ public interface ICaseManagementLocal {
 		Boolean addCase(Kase c);
 
 		Boolean update(Kase c);
+		Boolean search(Kase c);
 		
 		void flush();
 		

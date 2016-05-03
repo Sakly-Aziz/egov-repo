@@ -146,15 +146,8 @@ public class UserManagementBean {
 	Document document = new Document();
 	document.newPage();
 	try {
-
 		
-		
-	
-
-	
-		PdfWriter.getInstance(document,
-
-				new FileOutputStream("D:\\lol"+userSelected.getFirstName()+".pdf"));
+	PdfWriter.getInstance(document, new FileOutputStream("D:\\lol"+userSelected.getFirstName()+".pdf"));
 
 		document.open();
 		Font font = new Font(Font.FontFamily.TIMES_ROMAN, 70, Font.ITALIC | Font.BOLD | Font.BOLD);
@@ -230,11 +223,6 @@ public class UserManagementBean {
 	Document document = new Document();
 	document.newPage();
 	try {
-
-		
-		
-	
-
 	
 		PdfWriter.getInstance(document,
 
