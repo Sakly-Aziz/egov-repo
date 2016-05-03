@@ -23,13 +23,21 @@
 		<h2>Add Hopital</h2>
 		<h:form>
 			<h:panelGrid columns="2">
-				
+				<h:outputText value="numHopital" />
+				<h:inputText value="#{hopitalManagementBean.hopital.numHopital}"
+					required="true" requiredMessage="You should write the name" />
 				<h:outputText value="name" />
 				<h:inputText value="#{hopitalManagementBean.hopital.name}"
 					required="true" requiredMessage="You should write the name" />
 				<h:outputText value="adresse" />
 				<h:inputText value="#{hopitalManagementBean.hopital.adresse}"
 					required="true" requiredMessage="You should write the adresse" />
+					<h:outputText value="Latitude" />
+				<h:inputText value="#{hopitalManagementBean.hopital.lat}"
+					required="true" requiredMessage="You should write the Latitude" />
+				<h:outputText value="longitude" />
+				<h:inputText value="#{hopitalManagementBean.hopital.longitude}"
+					required="true" requiredMessage="You should write the longitude" />
  
 				<h:commandButton action="#{hopitalManagementBean.doAddHopital()}"
 					value="Send"/>
