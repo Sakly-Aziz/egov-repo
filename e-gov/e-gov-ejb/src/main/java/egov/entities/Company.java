@@ -21,7 +21,10 @@ public class Company implements Serializable {
 	private String name;
 	private String field;
 	private String sector;
-	private String adress;
+	
+	
+
+	
 
 	@OneToMany(mappedBy = "company")
 	private List<CompanyOffer> companyOffers;
@@ -52,14 +55,7 @@ public class Company implements Serializable {
 		this.sector = sector;
 	}
 
-	public String getAdress() {
-		return adress;
-	}
-
-	public void setAdress(String adress) {
-		this.adress = adress;
-	}
-
+	
 	public int getIdCompany() {
 		return idCompany;
 	}
@@ -91,7 +87,7 @@ public class Company implements Serializable {
 		this.name = name;
 		this.field = field;
 		this.sector = sector;
-		this.adress = adress;
+		
 
 		this.work = work;
 	}

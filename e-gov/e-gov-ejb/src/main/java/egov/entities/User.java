@@ -35,6 +35,9 @@ public class User implements Serializable {
 	private String job;
 	private Date deathDate;
 	private Blob photo;
+	private String requestSubject;
+	
+	private String request;
 	private Blob fingerPrint;
 	private String birthPlace;
 	private String login;
@@ -44,6 +47,33 @@ public class User implements Serializable {
 	private String gender;
 	private String nationality;
 	private int numCin;
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private List<Car> cars;
+	
+
+	public List<Car> getCars() {
+		return cars;
+	}
+
+	public void setCars(List<Car> cars) {
+		this.cars = cars;
+	}
+
+	public List<JobRequest> getJobRequests() {
+		return jobRequests;
+	}
+
+	public void setJobRequests(List<JobRequest> jobRequests) {
+		this.jobRequests = jobRequests;
+	}
+
+	public List<Detail> getDetail() {
+		return detail;
+	}
+
+	public void setDetail(List<Detail> detail) {
+		this.detail = detail;
+	}
 
 	public String getNationality() {
 		return nationality;
@@ -282,6 +312,22 @@ public class User implements Serializable {
 
 	public void setNumCin(int numCin) {
 		this.numCin = numCin;
+	}
+
+	public String getRequest() {
+		return request;
+	}
+
+	public void setRequest(String request) {
+		this.request = request;
+	}
+
+	public String getRequestSubject() {
+		return requestSubject;
+	}
+
+	public void setRequestSubject(String requestSubject) {
+		this.requestSubject = requestSubject;
 	}
 
 }

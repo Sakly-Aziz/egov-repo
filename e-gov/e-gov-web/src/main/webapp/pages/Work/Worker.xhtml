@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head></h:head>
+<body>
+	<h1>Employee's List</h1>
+	<h:form>
+		<h:dataTable border="2" value="#{workManagementBean.works}" var="o">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Assignement Date" />
+				</f:facet>
+				<h:outputText value="#{o.assignmentDate}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Job Type" />
+				</f:facet>
+				<h:outputText value="#{o.jobType}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Company's Id" />
+				</f:facet>
+				<h:outputText value="#{o.company.idCompany}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Duration" />
+				</f:facet>
+				<h:outputText value="#{o.duration}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="#" />
+				</f:facet>
+				<h:commandButton action="#{companyOfferBean.select(o)}"
+					value="select" />
+			</h:column>
+		</h:dataTable>
+		<h:outputText value="Duration" />
+		<h:inputText value="#{workManagementBean.work.duration}" />
+		<h:outputText value="Assignement Date" />
+		<h:inputText value="#{workManagementBean.work.assignmentDate}">
+			<f:convertDateTime pattern="dd-MM-yyyy" />
+		</h:inputText>
+		<h:outputText value="Job Type" />
+		<h:inputText value="#{workManagementBean.work.jobType}" />
+		<h:outputText value="Company's Id" />
+		<h:inputText value="#{workManagementBean.work.company.idCompany}" />
+		<h:commandButton action="#{workManagementBean.doCreateWork(o)}"
+			value="add" />
+
+	</h:form>
+
+
+
+</body>
+</html>

@@ -22,6 +22,33 @@ public class CompanyOffer implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String description;
+	private Double lat;
+	private Double longitude;
+	
+	public Double getLat() {
+		return lat;
+	}
+
+	public void setLat(Double lat) {
+		this.lat = lat;
+	}
+
+	public Double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(Double longitude) {
+		this.longitude = longitude;
+	}
+
+	public List<JobRequest> getJobRequests() {
+		return jobRequests;
+	}
+
+	public void setJobRequests(List<JobRequest> jobRequests) {
+		this.jobRequests = jobRequests;
+	}
+
 	private static final long serialVersionUID = 1L;
 
 	@ManyToOne

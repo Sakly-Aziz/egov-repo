@@ -34,26 +34,7 @@ public class Util {
 
 	@PostConstruct
 	public void initDB() {
-		University university = new University("ESPRIT", "GHAZELA", 123456);
-		University university2 = new University("TIME", "TUNIS", 1234789);
-
-		Citizen citizen = new Citizen();
-		citizen.setLogin("c");
-		citizen.setPwd("c");
-		citizen.setFirstName("Aziz");
-		
-		Admin admin1 = new Admin();
-		admin1.setLogin("admin");
-		admin1.setPwd("admin");
-		admin1.setFirstName("Majdi");
-		
-		
-
-		universityManagementLocal.addUniversity(university);
-		universityManagementLocal.addUniversity(university2);
-
-		iUserMangementLocal.addUser(citizen);
-		iUserMangementLocal.addUser(admin1);
+	
 
 	}
 

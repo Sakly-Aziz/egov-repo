@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
@@ -58,12 +59,13 @@ public class UserManagement implements IUserManagementRemote, IUserMangementLoca
 
 	@Override
 	public User findUserById(int id) {
+		String req="select p from User p where p.idUser like :n";
 		User user = null;
-		try {
-			user = Us.find(User.class, id);
-
-		} catch (Exception e) {
-
+		try{
+		Query query = Us.createQuery(req).setParameter("n", id);
+		user = (User) query.getSingleResult();
+		} catch(NoResultException ex){
+			System.out.println("no result found for query");
 		}
 		return user;
 	}

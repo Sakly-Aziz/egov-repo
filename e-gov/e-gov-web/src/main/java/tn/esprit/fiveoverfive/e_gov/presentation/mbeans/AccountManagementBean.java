@@ -138,7 +138,7 @@ public void setU(User u) {
 	
 	
 		PdfWriter.getInstance(document,
-				new FileOutputStream("D:\\lol"+accountSelected.getName()+".pdf"));
+				new FileOutputStream("D:/Bank extract"+accountSelected.getNum()+".pdf"));
 		document.open();
 		Font font = new Font(Font.FontFamily.TIMES_ROMAN, 48, Font.ITALIC | Font.BOLD | Font.BOLD);
 		Paragraph p1 = new Paragraph("Account Extract ");
@@ -222,7 +222,7 @@ public void setU(User u) {
 	document.close();
 	
 	
-    BoxAPIConnection api = new BoxAPIConnection("jHtAjCYBVODYx7Me2Df33Wrara0IDg2v");
+    BoxAPIConnection api = new BoxAPIConnection("Dok7nH00LaQ7eTvHCfCridmtTdmjELEL");
 	BoxFolder rootFolder = BoxFolder.getRootFolder(api);
 	for (com.box.sdk.BoxItem.Info itemInfo : rootFolder) {
 	    System.out.format("[%s] %s\n", itemInfo.getID(), itemInfo.getName());
@@ -263,4 +263,5 @@ public void setU(User u) {
         FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Correct", "Correct");
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
+  
 	}

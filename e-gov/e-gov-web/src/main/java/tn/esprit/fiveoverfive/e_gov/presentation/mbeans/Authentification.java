@@ -100,4 +100,9 @@ public class Authentification {
 	
 
 	
+	public String  doLogout() {
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		return "/public/login?faces-redirect=true";
+		
+	}
 }
