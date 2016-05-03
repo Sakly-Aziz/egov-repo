@@ -64,6 +64,13 @@ public class UniversityBean implements Serializable {
 		universities = universityManagementLocal.findAll();
 		return universities;
 	}
+	
+	
+	public String Pie()
+	{
+			
+		return  "/pages/universityManagement/animate?faces-redirect=true";
+	}
 
 	public void setUniversities(List<University> universities) {
 		this.universities = universities;

@@ -8,6 +8,7 @@ import egov.entities.Kase;
 public interface ICaseManagementRemote {
 Boolean addCase(Kase c);
 Boolean update(Kase c);
+Boolean search(Kase c);
 void flush();
 Boolean remove(Kase c);
 List<Kase> findAll();
