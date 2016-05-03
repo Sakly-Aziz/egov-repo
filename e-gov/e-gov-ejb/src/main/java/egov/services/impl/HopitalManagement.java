@@ -56,5 +56,4 @@ public class HopitalManagement implements IHopitalManagement  {
 	}
 
 
-	
 }
