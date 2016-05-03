@@ -55,7 +55,6 @@ public class HopitalManagement implements IHopitalManagement  {
 		return query.getResultList();
 	}
 
-	
 
 	
 }
