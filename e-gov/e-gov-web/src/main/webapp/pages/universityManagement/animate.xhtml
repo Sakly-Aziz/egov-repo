@@ -1,24 +1,23 @@
-<!DOCTYPE html>
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:jsf="http://xmlns.jcp.org/jsf"
-	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
-	xmlns:p="http://primefaces.org/ui" template="/index.xhtml">
-
-	<ui:define name="title">Pie Chart</ui:define>
-
-
-	<ui:define name="content">
-
-<h1>liste des inscriptions dans les universités</h1>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+	<h:body>
 	<h:form>
-<h:panelGrid columns="2" columnClasses="left,right" style="width:100%">
-    
-    <p:chart type="bar" model="#{chartViewBean.animatedModel2}" style="width:400px;" />
+	<center>
+	<h1 style="color: #CB1C1C ;">Static Result</h1>
+	
+	
+	</center>
+	<h:panelGrid columns="2" columnClasses="left,right" >
+   
+    <p:chart type="bar" model="#{chartView.animatedModel2}" style="width:700px;  margin-left:200px; margin-top:50px" />
 </h:panelGrid>
-</h:form>
-
-</ui:define>
-</ui:composition>
+	</h:form>
+	
+	</h:body>
+</html>

@@ -15,6 +15,7 @@ import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
@@ -127,20 +128,28 @@ public void setfilteredCases(List<Kase> filteredCases) {
 
 			Font font = new Font(Font.FontFamily.TIMES_ROMAN, 48, Font.ITALIC | Font.BOLD | Font.BOLD);
 
-			Paragraph p1 = new Paragraph("Bulletin 3 ");
-			Paragraph p2 = new Paragraph("name" + caseSelected.getNameCase());
-			Paragraph p3 = new Paragraph("jud:" + caseSelected.getJudgment());
-
+			Paragraph p0=new Paragraph("générale de la sécurité nationale"); 
+			Paragraph p1 = new Paragraph("Bulletin numero 3 ");
+			Paragraph p2 = new Paragraph("NAME:" + caseSelected.getNameCase());
+			Paragraph p3 = new Paragraph("JUDGMENT:" + caseSelected.getJudgment());
+			Paragraph p4=new Paragraph("DATE:" + caseSelected.getDateCase());
+			
+            p0.setAlignment(Element.ALIGN_LEFT);
 			p1.setAlignment(Element.ALIGN_CENTER);
-			p2.setAlignment(Element.ALIGN_CENTER);
-			p3.setAlignment(Element.ALIGN_CENTER);
+			p2.setAlignment(Element.ALIGN_LEFT);
+			p3.setAlignment(Element.ALIGN_LEFT);
+			p4.setAlignment(Element.ALIGN_LEFT);
 
+			
+			document.add(p0);
+			document.add(Chunk.NEWLINE);
 			document.add(p1);
 			document.add(Chunk.NEWLINE);
 			document.add(p2);
 			document.add(Chunk.NEWLINE);
 			document.add(p3);
-
+			document.add(Chunk.NEWLINE);
+			document.add(p4);
 			document.add(Chunk.NEWLINE);
 
 			document.close();

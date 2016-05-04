@@ -69,6 +69,15 @@ public class UniversityManagement implements UniversityManagementRemote, Univers
 		}
 		return univ;
 	}
+	@Override
+	public List<String> chercherEsprit() {
+		String nameUniversity ="ESPRIT";
+		return Us.createQuery("select n from University n where n.nameUniversity=:nameUniversity ").setParameter(nameUniversity, nameUniversity).getResultList();
+	}
+	@Override
+	public List<String> chercherTime() {
+		return Us.createQuery("select n.nameUniversity from University  n").getResultList();
+	}
 
 	@Override
 	public List<University> findAll() {

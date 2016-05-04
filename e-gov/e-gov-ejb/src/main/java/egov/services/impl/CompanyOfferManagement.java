@@ -54,7 +54,7 @@ public class CompanyOfferManagement implements CompanyOfferManagementRemote, Com
 		Boolean b = false;
 		try {
 			CompanyOffer companyOffer = entityManager.find(CompanyOffer.class, offerId);
-			User user = entityManager.find(User.class, userId);
+			User user                 = entityManager.find(User.class, userId);
 			JobRequest jobRequest = new JobRequest();
 			jobRequest.setDateOfRequest(new Date());
 

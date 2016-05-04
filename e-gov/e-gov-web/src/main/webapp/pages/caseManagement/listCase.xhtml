@@ -15,11 +15,11 @@
 	<h:form>
 	
 	
-			    <p:outputPanel>
+			<p:outputPanel>
 				  
 				<h:outputText value="Search all fields:"/>
 				<p:inputText id="globalFilter" onkeyup="PF('cases T'.filteredValue" style="width:150px" placeholder="Enter Keyword"/> 
-				</p:outputPanel>
+				</p:outputPanel>    
 				
 		<h:dataTable value="#{caseBean.cases}" var="c" border="2" styleClass="table table-striped table-bodered table-hover" widgetVar="casesTable" emptyMessage="No records found" filteredValue="#{caseBean.filteredCases}"><br />
 
@@ -29,6 +29,9 @@
 		<h:column id="c1">
 				<f:facet name="header">
 					<h:outputText value="name of case"></h:outputText>
+					
+					
+				
 				</f:facet>
 				<h:outputText value="#{c.nameCase}" />
 			</h:column>
