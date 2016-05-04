@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" template="/index.xhtml">
+
+	<ui:define name="title">login page</ui:define>
+
+
+	<ui:define name="content">
+		<h:form enctype="multipart/form-data">
+			<p:growl id="messages" showDetail="true" />
+			<p:growl id="growl" life="2000" />
+		</h:form>
+		<h:form>
+			<h:panelGrid columns="2">
+
+				<h2>The account sender</h2>
+				<h:outputText value="num account1" />
+				<h:inputText value="#{accountManagementBean.account.num}"
+					var="account1" required="true"
+					requiredMessage="You should select num account sender" />
+					
+					
+			
+				
+				<h:outputText value="ammount to send " />
+				<h:inputText value="#{accountManagementBean.money}" var="ammount"
+					required="true" requiredMessage="You should put an ammount to send" />
+				<h:panelGrid columns="2">
+				</h:panelGrid>
+				<h2>The account reciever</h2>
+				<h:outputText value="num account2" />
+				<h:inputText value="#{accountManagementBean.account2.num}"
+					var="account2" required="true"
+					requiredMessage="You should put an account reciever" />
+
+				<h:commandButton action="#{accountManagementBean.doSendMoney()}"
+					value="Send" />
+			</h:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>

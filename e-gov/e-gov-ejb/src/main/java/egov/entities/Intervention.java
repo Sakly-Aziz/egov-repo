@@ -15,8 +15,11 @@ public class Intervention implements Serializable {
 	@Id
 	private int idI;
 	private String name;
+	private String description;
+
 	@OneToMany(mappedBy = "intervention", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Detail> detail;
+	
 	@ManyToOne(cascade=CascadeType.PERSIST)
 	private Hopital hopital;
 
@@ -47,12 +50,23 @@ public class Intervention implements Serializable {
 	public Intervention() {
 		super();
 	}
-	public Intervention(int idI, String name, List<Detail> detail) {
+
+	public Intervention(int idI, String name, String description, List<Detail> detail, Hopital hopital) {
 		super();
 		this.idI = idI;
 		this.name = name;
+		this.description = description;
 		this.detail = detail;
+		this.hopital = hopital;
 	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	
 	
 	
 	

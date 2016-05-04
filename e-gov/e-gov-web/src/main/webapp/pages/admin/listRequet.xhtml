@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" template="/index.xhtml">
+
+	<ui:define name="title">login page</ui:define>
+
+
+	<ui:define name="content">
+		<h:form>
+			<h1>Request Management</h1>
+			<h:dataTable value="#{userManagementBean1.users1}" var="c" border="2">
+
+				<h:column id="c1">
+					<f:facet name="header">
+						<h:outputText value="First Name"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{c.firstName}" />
+				</h:column>
+				<h:column id="c11">
+					<f:facet name="header">
+						<h:outputText value="Last Name"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{c.lastName}" />
+				</h:column>
+
+				<h:column id="c123555555">
+					<f:facet name="header">
+						<h:outputText value="Cin Number"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{c.numCin}" />
+				</h:column>
+				<h:column id="c12355">
+					<f:facet name="header">
+						<h:outputText value="Request Subject"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{c.requestSubject}" />
+				</h:column>
+				<h:column id="c1238955">
+					<f:facet name="header">
+						<h:outputText value="Request"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{c.request}" />
+				</h:column>
+
+
+			
+				<h:column id="c245">
+					<f:facet name="header">
+						<h:outputText value="#"></h:outputText>
+					</f:facet>
+					<h:commandButton action="#{userManagementBean1.doSelectUser(c)}"
+						value="Click to Delete Request" />
+				</h:column>
+
+
+			</h:dataTable>
+			<h:panelGrid columns="2">
+				<h:outputText value="Request Subject" />
+				<h:inputText value="#{userManagementBean1.userSelected.requestSubject}" />
+					<h:outputText value="Subject" />
+				<h:inputText value="#{userManagementBean1.userSelected.request}" />
+
+
+				<h:commandButton action="#{userManagementBean1.doUpdateUser()}"
+					value="Confirm" />
+
+
+
+			</h:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>

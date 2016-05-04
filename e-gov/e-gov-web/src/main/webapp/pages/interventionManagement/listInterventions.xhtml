@@ -6,20 +6,20 @@
 	xmlns:jsf="http://xmlns.jcp.org/jsf"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:p="http://primefaces.org/ui"
-	template="/blog.xhtml">
+	template="/index.xhtml">
 	
 	<ui:define name="title">Intervention</ui:define>
 
 
 <ui:define name="content">
 
-<h3>LIST</h3>
+<h2>List of Intervention</h2>
 
 	<h:form>
 		<h:dataTable value="#{interventionManagementBean.interventions}" var="c" border="2">
 			<h:column id="c1">
 				<f:facet name="header">
-					<h:outputText value="id"></h:outputText>
+					<h:outputText value="Number of Intervention"></h:outputText>
 				</f:facet>
 				<h:outputText value="#{c.idI}" />
 			</h:column>
@@ -29,13 +29,20 @@
 				</f:facet>
 				<h:outputText value="#{c.name}" />
 			</h:column>
+			
 			<h:column id="c3">
+				<f:facet name="header">
+					<h:outputText value="Description"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{c.description}" />
+			</h:column>
+			<h:column id="c4">
 				<f:facet name="header">
 					<h:outputText value="#"></h:outputText>
 				</f:facet>
 				<h:commandButton action="#{interventionManagementBean.doDeleteIntervention(c)}" value="delete" />
 			</h:column>
-			<h:column id="c4">
+			<h:column id="c5">
 				<f:facet name="header">
 					<h:outputText value="#"></h:outputText>
 				</f:facet>
@@ -44,10 +51,13 @@
 		</h:dataTable>
 		<h:panelGrid columns="2">
 		
-			<h:outputText value="id" />
+			<h:outputText value="Number of Intervention" />
 			<h:inputText value="#{interventionManagementBean.interventionSelected.idI}" />
 					<h:outputText value="name" />
 			<h:inputText value="#{interventionManagementBean.interventionSelected.name}" />
+			<h:outputText value="description" />
+			<h:inputText value="#{interventionManagementBean.interventionSelected.description}" />
+			
 		
 			<h:commandButton action="#{interventionManagementBean.doUpdateIntervention()}" value="update" />
 		</h:panelGrid>
